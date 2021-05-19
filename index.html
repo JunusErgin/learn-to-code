@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Akademie</title>
+    <link rel="icon" href="img/da.png">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #2C6087;
+            font-family: "PT Sans", sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        h1 {
+            font-family: "Fredoka One", cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .game-container {
+            background-color: white;
+            width: 50%;
+            height: 100vh;
+            box-sizing: border-box;
+            /* Opera/IE 8+ */
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            box-shadow: 5px 2px 5px rgb(0 0 0 / 5%);
+        }
+        
+        .play-button {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+        }
+        
+        .play-button:hover {
+            filter: brightness(1.3);
+        }
+        
+        table {
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+        }
+        
+        td {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            width: 20%;
+            height: 20%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        td:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .code-editor {
+            background-color: black;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+            line-height: 1.2;
+            height: 400px;
+            padding-left: 40px;
+            font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+        }
+        
+        #character,
+        #da {
+            width: 50px;
+            height: 50px;
+            transition: all 125ms ease-in-out;
+        }
+        
+        .coding-container {
+            width: 50%;
+            padding: 32px;
+            position: relative;
+        }
+        
+        code {
+            font-weight: 500;
+            font-size: 17px;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+        }
+        
+        .editor-box {
+            position: relative;
+        }
+        
+        .editor-lines {
+            height: 400px;
+            position: absolute;
+            left: 10px;
+            top: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            line-height: 16px;
+        }
+        
+        .legal {
+            font-size: 12px;
+            padding-top: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+        
+        #errorDialog {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #errorDialog div {
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            padding: 8px;
+            box-shadow: 2px 9px 12px rgb(0 0 0 / 64%);
+            color: #4B6170;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        #errorDialog div span {
+            font-size: 14px;
+        }
+        
+        #errorDialog div button {
+            background-color: #F65656;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 46px;
+            border: none;
+        }
+        
+        #errorDialog div button:hover {
+            background-color: #f56666;
+        }
+        
+        .level-picker {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 48px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .level-picker img {
+            width: 12px;
+            height: 12px;
+            opacity: 0.8;
+        }
+        
+        .level-left {
+            left: 0;
+        }
+        
+        .level-right {
+            right: 0;
+        }
+        
+        .level-picker-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .level-picker-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .space-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
+    <script src="script.js">
+    </script>
+</head>
+
+<body onload="init()">
+    <div class="coding-container">
+        <div class="space-between">
+            <h1>Developer Akademie</h1>
+
+            <div class="level-picker">
+                <div class="level-left level-picker-btn"><img src="img/arrow-left.png"></div>
+                Level <b>1</b> von <b>10</b>
+
+                <div class="level-right level-picker-btn"><img src="img/arrow-right.png"></div>
+            </div>
+        </div>
+        <p>Verwende die Funktion <code>move()</code>, um dich zur Developer Akademie zu begeben.</p>
+
+        <div class="editor-box">
+            <div class="editor-lines">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
+                <div>13</div>
+                <div>14</div>
+                <div>15</div>
+                <div>16</div>
+                <div>17</div>
+                <div>18</div>
+                <div>19</div>
+                <div>20</div>
+            </div>
+        </div>
+        <textarea id="code" rows="15" class="code-editor">
+for 5:
+  move();
+turn();
+        </textarea>
+
+        <div class="legal">
+            Dieses Spiel wurde erstellt von der Developer Akademie. <a target="_blank" href="https://developerakademie.com/imprint">Impressum</a> | <a target="_blank" href="https://developerakademie.com/data-protection">Datenschutz</a>
+        </div>
+
+        <img src="img/play.png" onclick="start()" class="play-button">
+
+    </div>
+
+    <div class="game-container">
+        <table>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="errorDialog" style="display: none;">
+        <div>
+            Oh nein!
+            <span id="errorMsg">Hier der Fehler</span>
+            <button onclick="restart()">Erneut versuchen</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
