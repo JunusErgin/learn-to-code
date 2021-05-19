@@ -44,6 +44,20 @@ function start() {
     }
 }
 
+function lastLevel() {
+    if (level > 1) {
+        level--;
+        startLevel();
+    }
+}
+
+function nextLevel() {
+    if (level < 4) {
+        level++;
+        startLevel();
+    }
+}
+
 function getRepetitionsFromForLoop(token) {
     return token.replace('for ', '').replace(':', '');
 }
@@ -128,7 +142,7 @@ function remove(id) {
 }
 
 function init() {
-    restartLevel();
+    startLevel();
 
     let tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
@@ -156,9 +170,15 @@ function generateCols(row) {
     return html;
 }
 
-function restartLevel() {
+function startLevel() {
+    let levelNumber = document.getElementById('levelNumber');
+    levelNumber.innerHTML = level;
     if (level == 1) {
         level1();
+    }
+
+    if (level == 2) {
+        level2();
     }
 }
 
@@ -167,4 +187,17 @@ function level1() {
     x = 0;
     y = 6;
     degree = 90;
+    write('levelDescription', 'Verwende die Funktion <code>move()</code>, um dich zur Developer Akademie zu begeben.');
+}
+
+function level2() {
+    x = 2;
+    y = 2;
+    degree = 90;
+    write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code>move()</code> und <code>turn()</code>.');
+}
+
+function write(id, msg) {
+    let levelDescription = document.getElementById(id);
+    levelDescription.innerHTML = msg;
 }
