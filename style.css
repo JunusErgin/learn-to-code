@@ -16,6 +16,9 @@ h1 {
 
 .game-container {
     background-color: white;
+    background-image: url("img/BG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 50%;
     height: 100vh;
     box-sizing: border-box;
