@@ -154,7 +154,7 @@ function startLevel() {
 function level1() {
     character.x = 0;
     character.y = 6;
-    character.degree = 90;
+    character.degree = 0;
     write('levelDescription', 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.');
 }
 

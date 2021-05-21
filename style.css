@@ -1,5 +1,5 @@
 :root {
-    --main-color: #1b1464;
+    --main-color: #1B1464;
     --developer-akademie-color: #fd7066;
     --card-padding-desktop: 60px;
     --card-padding-mobile: 16px;
@@ -63,7 +63,7 @@ table {
 }
 
 td {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     width: 20%;
     height: 20%;
@@ -72,7 +72,7 @@ td {
 }
 
 td:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .code-editor {
@@ -85,16 +85,15 @@ td:hover {
     height: 400px;
     padding-left: 40px;
     border-radius: 10px;
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-        Courier New, monospace, serif;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
 #character,
 #da,
 #danger,
 #planet {
-    width: 150px;
-    height: 150px;
+    width: 80%;
+    height: auto;
     transition: all 125ms ease-in-out;
 }
 
@@ -272,11 +271,9 @@ a:hover {
     body {
         flex-direction: column;
     }
-
     .coding-container {
         width: auto;
     }
-
     .game-container {
         width: 100%;
     }
@@ -287,7 +284,6 @@ a:hover {
         flex-direction: column;
         margin-bottom: 16px;
     }
-
     .coding-container {
         padding: 0;
     }
@@ -298,11 +294,10 @@ a:hover {
     #da,
     #danger,
     #planet {
-        width: 100px;
-        height: 100px;
+        width: 80%;
+        height: auto;
         transition: all 125ms ease-in-out;
     }
-
     .card {
         padding: var(--card-padding-mobile);
     }
