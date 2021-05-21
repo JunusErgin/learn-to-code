@@ -1,7 +1,12 @@
-:root{
-    --main-color: #1B1464;
-    --developer-akademie-color: #FD7066;
-    --card-padding: 60px;
+:root {
+    --main-color: #1b1464;
+    --developer-akademie-color: #fd7066;
+    --card-padding-desktop: 60px;
+    --card-padding-mobile: 16px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,7 +26,7 @@ h1 {
 }
 
 .game-container {
-    background-color: white;
+    /* background-color: white; */
     background-image: url("img/BG.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,7 +49,6 @@ h1 {
     width: 48px;
     height: 48px;
     cursor: pointer;
-    margin-top: 60px;
 }
 
 .play-button:hover {
@@ -81,13 +85,16 @@ td:hover {
     height: 400px;
     padding-left: 40px;
     border-radius: 10px;
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace, serif;
 }
 
 #character,
-#da {
-    width: 50px;
-    height: 50px;
+#da,
+#danger,
+#planet {
+    width: 150px;
+    height: 150px;
     transition: all 125ms ease-in-out;
 }
 
@@ -120,6 +127,10 @@ code {
 }
 
 .legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: 12px;
     padding-top: 16px;
     /* color: rgba(255, 255, 255, 0.8); */
@@ -138,7 +149,7 @@ a:hover {
 }
 
 #errorDialog {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -155,7 +166,7 @@ a:hover {
     background-color: white;
     padding: 8px;
     box-shadow: 2px 9px 12px rgb(0 0 0 / 64%);
-    color: #4B6170;
+    color: #4b6170;
     font-size: 32px;
     display: flex;
     align-items: center;
@@ -170,7 +181,7 @@ a:hover {
 }
 
 #errorDialog div button {
-    background-color: #F65656;
+    background-color: #f65656;
     cursor: pointer;
     color: white;
     font-size: 16px;
@@ -231,20 +242,68 @@ a:hover {
     align-items: center;
 }
 
-.card{
+.card {
     background-color: white;
-    padding: var(--card-padding);
+    padding: var(--card-padding-desktop);
     border-radius: 26px;
     color: black;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.text-color-main{
+.card h2 {
+    font-size: 36px;
+}
+
+#levelDescription {
+    font-size: 18px;
+}
+
+.text-color-main {
     color: var(--main-color);
 }
 
-.text-color-da{
+.text-color-da {
     color: var(--developer-akademie-color);
+}
+
+@media (max-width: 1000px) {
+    body {
+        flex-direction: column;
+    }
+
+    .coding-container {
+        width: auto;
+    }
+
+    .game-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .space-between {
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    .coding-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    #character,
+    #da,
+    #danger,
+    #planet {
+        width: 100px;
+        height: 100px;
+        transition: all 125ms ease-in-out;
+    }
+
+    .card {
+        padding: var(--card-padding-mobile);
+    }
 }

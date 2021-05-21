@@ -9,6 +9,7 @@
     <link rel="icon" href="img/da.png">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet'
         type='text/css'>
+        
     <link rel="stylesheet" href="style.css">
 
     <script src="script.js">
@@ -65,12 +66,14 @@
             </div>
 
 
-            <img src="img/play.png" onclick="start()" class="play-button">
+            <a href="#tbody"><img src="img/play.png" onclick="start()" class="play-button"></a>
 
             <div class="legal">
-                Dieses Spiel wurde erstellt von der <span class="text-color-da">Developer Akademie</span>. <a
-                    target="_blank" href="https://developerakademie.com/imprint">Impressum</a> | <a target="_blank"
-                    href="https://developerakademie.com/data-protection">Datenschutz</a>
+                <p>Dieses Spiel wurde erstellt von der <span class="text-color-da">Developer Akademie</span>.</p>
+                <div>
+                    <a target="_blank" href="https://developerakademie.com/imprint">Impressum</a> |
+                    <a target="_blank" href="https://developerakademie.com/data-protection">Datenschutz</a>
+                </div>
             </div>
         </div>
 
@@ -89,7 +92,7 @@
         <div>
             Oh nein!
             <span id="errorMsg">Hier der Fehler</span>
-            <button onclick="restart()">Erneut versuchen</button>
+            <a href="#"><button onclick="restart()">Erneut versuchen</button></a>
         </div>
     </div>
 

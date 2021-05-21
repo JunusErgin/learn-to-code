@@ -118,7 +118,7 @@ function updateCharacter() {
     if (!field) {
         throw Error('Element not found');
     }
-    field.innerHTML = '<img id="character" style="transform: rotate(' + degree + 'deg);" src="img/junus.png">';
+    field.innerHTML = '<img id="character" style="transform: rotate(' + degree + 'deg);" src="img/character/muestra_pink.gif">';
 }
 
 function showDialog(msg) {
@@ -152,6 +152,9 @@ function init() {
               ${generateCols(i)}
             </tr>`;
     }
+
+    document.getElementById("3x3").innerHTML = `<img id="danger" src="img/planets/Dangerous.png">`;
+    document.getElementById("6x0").innerHTML = `<img id="da" src="img/planets/6.png">`;
 
     updateCharacter();
 }
