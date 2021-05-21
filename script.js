@@ -1,8 +1,12 @@
-let degree = 90;
+let character = new Character();
+
+// let x = 0;
+// let y = 6;
+// let degree = 90;
+
 let rows = 7;
 let cols = 7;
-let x = 0;
-let y = 6;
+
 let timeouts = [];
 let level = 1;
 
@@ -33,9 +37,9 @@ function start() {
         for (let j = 0; j < repeats; j++) {
             let func;
             if (token == 'move();')
-                func = move;
+                func = character.move.bind(character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
             else if (token == 'turn();')
-                func = turn;
+                func = character.turn.bind(character);
 
             exec(func, 1000 * iteration, row, token);
             iteration++;
@@ -82,45 +86,6 @@ function clearTimeouts() {
     timeouts.forEach(t => clearTimeout(t));
 }
 
-function move() {
-    console.log('move()');
-    degree = degree % 360;
-
-    if (degree == 0) {
-        y--;
-    }
-
-    if (degree == 90) {
-        x++;
-    }
-
-    if (degree == 180) {
-        y++;
-    }
-
-    if (degree == 270) {
-        x--;
-    }
-    updateCharacter();
-}
-
-function turn() {
-    console.log('turn()');
-    degree += 90;
-    updateCharacter();
-}
-
-function updateCharacter() {
-
-    remove('character');
-    let id = x + 'x' + y;
-    let field = document.getElementById(id);
-    if (!field) {
-        throw Error('Element not found');
-    }
-    field.innerHTML = '<img id="character" style="transform: rotate(' + degree + 'deg);" src="img/character/muestra_pink.gif">';
-}
-
 function showDialog(msg) {
     let errorDialog = document.getElementById('errorDialog');
     let errorMsg = document.getElementById('errorMsg');
@@ -156,7 +121,7 @@ function init() {
     document.getElementById("3x3").innerHTML = `<img id="danger" src="img/planets/Dangerous.png">`;
     document.getElementById("6x0").innerHTML = `<img id="da" src="img/planets/6.png">`;
 
-    updateCharacter();
+    character.update();
 }
 
 
@@ -187,16 +152,16 @@ function startLevel() {
 
 
 function level1() {
-    x = 0;
-    y = 6;
-    degree = 90;
+    character.x = 0;
+    character.y = 6;
+    character.degree = 90;
     write('levelDescription', 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.');
 }
 
 function level2() {
-    x = 2;
-    y = 2;
-    degree = 90;
+    character.x = 2;
+    character.y = 2;
+    character.degree = 90;
     write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.');
 }
 
@@ -204,3 +169,46 @@ function write(id, msg) {
     let levelDescription = document.getElementById(id);
     levelDescription.innerHTML = msg;
 }
+
+/**
+ * 21.05.2021 - Moved to Character Class
+ */
+
+// function move() {
+//     console.log('move()');
+//     degree = degree % 360;
+
+//     if (degree == 0) {
+//         y--;
+//     }
+
+//     if (degree == 90) {
+//         x++;
+//     }
+
+//     if (degree == 180) {
+//         y++;
+//     }
+
+//     if (degree == 270) {
+//         x--;
+//     }
+//     updateCharacter();
+// }
+
+// function turn() {
+//     console.log('turn()');
+//     degree += 90;
+//     updateCharacter();
+// }
+
+// function updateCharacter() {
+
+//     remove('character');
+//     let id = x + 'x' + y;
+//     let field = document.getElementById(id);
+//     if (!field) {
+//         throw Error('Element not found');
+//     }
+//     field.innerHTML = '<img id="character" style="transform: rotate(' + degree + 'deg);" src="img/character/muestra_pink.gif">';
+// }
