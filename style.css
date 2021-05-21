@@ -1,6 +1,12 @@
+:root{
+    --main-color: #1B1464;
+    --developer-akademie-color: #FD7066;
+    --card-padding: 60px;
+}
+
 body {
     margin: 0;
-    background-color: #2C6087;
+    background-color: var(--main-color);
     font-family: "PT Sans", sans-serif;
     color: white;
     min-height: 100vh;
@@ -33,12 +39,12 @@ h1 {
 }
 
 .play-button {
-    position: absolute;
-    right: 24px;
-    bottom: 24px;
+    /* position: relative;
+    left: calc(50% - var(--card-padding)); */
     width: 48px;
     height: 48px;
     cursor: pointer;
+    margin-top: 60px;
 }
 
 .play-button:hover {
@@ -66,7 +72,7 @@ td:hover {
 }
 
 .code-editor {
-    background-color: black;
+    background-color: var(--main-color);
     color: white;
     width: 100%;
     box-sizing: border-box;
@@ -74,6 +80,7 @@ td:hover {
     line-height: 1.2;
     height: 400px;
     padding-left: 40px;
+    border-radius: 10px;
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
@@ -99,6 +106,7 @@ code {
 
 .editor-box {
     position: relative;
+    width: 100%;
 }
 
 .editor-lines {
@@ -114,11 +122,11 @@ code {
 .legal {
     font-size: 12px;
     padding-top: 16px;
-    color: rgba(255, 255, 255, 0.8);
+    /* color: rgba(255, 255, 255, 0.8); */
 }
 
 a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
     margin-left: 8px;
     margin-right: 8px;
@@ -126,7 +134,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: white;
+    color: black;
 }
 
 #errorDialog {
@@ -221,4 +229,22 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.card{
+    background-color: white;
+    padding: var(--card-padding);
+    border-radius: 26px;
+    color: black;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.text-color-main{
+    color: var(--main-color);
+}
+
+.text-color-da{
+    color: var(--developer-akademie-color);
 }

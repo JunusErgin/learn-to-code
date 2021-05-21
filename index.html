@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Akademie</title>
     <link rel="icon" href="img/da.png">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet'
+        type='text/css'>
     <link rel="stylesheet" href="style.css">
 
     <script src="script.js">
@@ -26,43 +27,52 @@
                 <div onclick="nextLevel()" class="level-right level-picker-btn"><img src="img/arrow-right.png"></div>
             </div>
         </div>
-        <p id="levelDescription"></p>
 
-        <div class="editor-box">
-            <div class="editor-lines">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-                <div>19</div>
-                <div>20</div>
+        <div class="card ">
+            <div style="width: 100%;">
+                <h2 class="text-color-main">Lopers Trip</h2>
+                <p id="levelDescription"></p>
+            </div>
+
+
+            <div class="editor-box">
+                <div class="editor-lines">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                </div>
+                <textarea id="code" rows="15" class="code-editor">for 5:
+                     move(); 
+                     turn();
+                </textarea>
+            </div>
+
+
+            <img src="img/play.png" onclick="start()" class="play-button">
+
+            <div class="legal">
+                Dieses Spiel wurde erstellt von der <span class="text-color-da">Developer Akademie</span>. <a
+                    target="_blank" href="https://developerakademie.com/imprint">Impressum</a> | <a target="_blank"
+                    href="https://developerakademie.com/data-protection">Datenschutz</a>
             </div>
         </div>
-        <textarea id="code" rows="15" class="code-editor">
-for 5:
-  move();
-turn();
-        </textarea>
-
-        <div class="legal">
-            Dieses Spiel wurde erstellt von der Developer Akademie. <a target="_blank" href="https://developerakademie.com/imprint">Impressum</a> | <a target="_blank" href="https://developerakademie.com/data-protection">Datenschutz</a>
-        </div>
-
-        <img src="img/play.png" onclick="start()" class="play-button">
 
     </div>
 

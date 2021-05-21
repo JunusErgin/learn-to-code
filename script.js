@@ -187,14 +187,14 @@ function level1() {
     x = 0;
     y = 6;
     degree = 90;
-    write('levelDescription', 'Verwende die Funktion <code>move()</code>, um dich zur Developer Akademie zu begeben.');
+    write('levelDescription', 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.');
 }
 
 function level2() {
     x = 2;
     y = 2;
     degree = 90;
-    write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code>move()</code> und <code>turn()</code>.');
+    write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.');
 }
 
 function write(id, msg) {
