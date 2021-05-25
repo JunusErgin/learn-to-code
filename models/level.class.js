@@ -16,4 +16,12 @@ class Level{
             danger.update();
         });
     }
+
+    hasReachedTarget(){
+        return this.character.x == this.planet.x && this.character.y == this.planet.y;
+    }
+
+    hasCollide(){
+        return this.dangers.some( danger => danger.x == this.character.x && danger.y == this.character.y);
+    }
 }

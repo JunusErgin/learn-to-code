@@ -12,6 +12,7 @@ function start() {
 
     let repeats = 1;
     let iteration = 0;
+
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i].trim();
         let row = i + 1;
@@ -33,15 +34,22 @@ function start() {
         for (let j = 0; j < repeats; j++) {
             let func;
             if (token == 'move();')
-                func = level.character.move.bind(character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+                func = levelObj.character.move.bind(levelObj.character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
             else if (token == 'turn();')
-                func = level.character.turn.bind(character);
+                func = levelObj.character.turn.bind(levelObj.character);
 
             exec(func, 1000 * iteration, row, token);
             iteration++;
         }
         repeats = 1;
     }
+
+    //TODO CHECK IF CHARACTER REACHED TARGET
+    // if(levelObj.hasReachedTarget()){
+    //     console.log("TARGET REACHED");
+    // }else{
+    //     console.log("TARGET MISSED");
+    // }
 }
 
 function lastLevel() {
@@ -70,6 +78,9 @@ function exec(func, timeout, row, token) {
     let t = setTimeout(function () {
         try {
             func();
+            if(levelObj.hasCollide())
+                throw Error('Collision');
+            
         } catch (e) {
             showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
             clearTimeouts();
@@ -141,7 +152,7 @@ function startLevel() {
 
 function level1() {
 
-    let character = new Character(0, 6, 0);
+    let character = new Character(0, 0, 90);
     let danger = new Danger(3, 3, 0, 0);
     let danger2 = new Danger(3, 0, 180, 1);
     let planet = new Planet(6, 0, 0);
