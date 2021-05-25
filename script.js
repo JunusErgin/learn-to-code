@@ -1,8 +1,4 @@
-let character = new Character();
-
-// let x = 0;
-// let y = 6;
-// let degree = 90;
+let levelObj;
 
 let rows = 7;
 let cols = 7;
@@ -37,9 +33,9 @@ function start() {
         for (let j = 0; j < repeats; j++) {
             let func;
             if (token == 'move();')
-                func = character.move.bind(character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+                func = level.character.move.bind(character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
             else if (token == 'turn();')
-                func = character.turn.bind(character);
+                func = level.character.turn.bind(character);
 
             exec(func, 1000 * iteration, row, token);
             iteration++;
@@ -56,7 +52,7 @@ function lastLevel() {
 }
 
 function nextLevel() {
-    if (level < 4) {
+    if (level < 10) {
         level++;
         startLevel();
     }
@@ -71,7 +67,7 @@ function isForLoop(token) {
 }
 
 function exec(func, timeout, row, token) {
-    let t = setTimeout(function() {
+    let t = setTimeout(function () {
         try {
             func();
         } catch (e) {
@@ -99,16 +95,12 @@ function restart() {
     init();
 }
 
-function remove(id) {
-    let elem = document.getElementById(id);
-    if (elem) {
-        elem.parentNode.removeChild(elem);
-    }
+function init() {
+    createSpace();
+    startLevel();
 }
 
-function init() {
-    startLevel();
-
+function createSpace(){
     let tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
     for (let i = 0; i < rows; i++) {
@@ -117,11 +109,6 @@ function init() {
               ${generateCols(i)}
             </tr>`;
     }
-
-    document.getElementById("3x3").innerHTML = `<img id="danger" src="img/planets/Dangerous.png">`;
-    document.getElementById("6x0").innerHTML = `<img id="da" src="img/planets/6.png">`;
-
-    character.update();
 }
 
 
@@ -142,33 +129,55 @@ function startLevel() {
     let levelNumber = document.getElementById('levelNumber');
     levelNumber.innerHTML = level;
     if (level == 1) {
-        level1();
+        levelObj = level1();
     }
 
     if (level == 2) {
-        level2();
+        levelObj = level2();
     }
+
+    levelObj.update();
 }
 
-
 function level1() {
-    character.x = 0;
-    character.y = 6;
-    character.degree = 0;
+
+    let character = new Character(0, 6, 0);
+    let danger = new Danger(3, 3, 0, 0);
+    let danger2 = new Danger(3, 0, 180, 1);
+    let planet = new Planet(6, 0, 0);
+
     write('levelDescription', 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.');
+
+    return new Level(character, planet, [danger, danger2] );
 }
 
 function level2() {
-    character.x = 2;
-    character.y = 2;
-    character.degree = 90;
+
+    let character = new Character(0, 6, 90);
+    let danger = new Danger(3, 3, 0, 0);
+    let danger2 = new Danger(4, 0, 0, 1);
+    let planet = new Planet(6, 1, 0);
+
     write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.');
+    
+    return new Level(character, planet, [danger, danger2] );
 }
 
 function write(id, msg) {
     let levelDescription = document.getElementById(id);
     levelDescription.innerHTML = msg;
 }
+
+/**
+ * 25.05.2021 - Moved to Character Class
+ */
+
+// function remove(id) {
+//     let elem = document.getElementById(id);
+//     if (elem) {
+//         elem.parentNode.removeChild(elem);
+//     }
+// }
 
 /**
  * 21.05.2021 - Moved to Character Class

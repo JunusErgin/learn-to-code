@@ -46,8 +46,8 @@ h1 {
 .play-button {
     /* position: relative;
     left: calc(50% - var(--card-padding)); */
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
 }
 
@@ -88,10 +88,7 @@ td:hover {
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
-#character,
-#da,
-#danger,
-#planet {
+.space-object {
     width: 80%;
     height: auto;
     transition: all 125ms ease-in-out;
@@ -103,11 +100,13 @@ td:hover {
     position: relative;
 }
 
-code {
+#code {
     font-weight: 500;
     font-size: 17px;
     border-bottom: 1px solid white;
     cursor: pointer;
+    height: 500px;
+    resize: none;
 }
 
 .editor-box {
@@ -121,8 +120,10 @@ code {
     left: 10px;
     top: 16px;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-    line-height: 16px;
+    /* font-size: 13px; */
+    /* line-height: 16px; */
+    font-weight: 500;
+    font-size: 17px;
 }
 
 .legal {
@@ -267,6 +268,10 @@ a:hover {
     color: var(--developer-akademie-color);
 }
 
+.mt-0{
+    margin-top: 0;
+}
+
 @media (max-width: 1000px) {
     body {
         flex-direction: column;
@@ -290,10 +295,7 @@ a:hover {
 }
 
 @media (max-width: 500px) {
-    #character,
-    #da,
-    #danger,
-    #planet {
+    .space-object{
         width: 80%;
         height: auto;
         transition: all 125ms ease-in-out;

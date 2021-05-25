@@ -1,18 +1,32 @@
-class Character{
-    x = 0;
-    y = 6;
-    degree = 90;
+class Character extends SpaceObject{
 
-    update() {
-
-        remove('character');
-        let id = this.x + 'x' + this.y;
-        let field = document.getElementById(id);
-        if (!field) {
-            throw Error('Element not found');
-        }
-        field.innerHTML = '<img id="character" style="transform: rotate(' + this.degree + 'deg);" src="img/character/muestra_pink.gif">';
+    constructor(x, y, degree){
+       super(x, y, degree);
+       this.id = 'character';
+       this.img = 'img/character/muestra_pink.gif';
     }
+
+    /**
+     * Inherit Methods From SpaceObject
+     */
+
+    // update() {
+
+    //     this.remove();
+    //     let id = this.x + 'x' + this.y;
+    //     let field = document.getElementById(id);
+    //     if (!field) {
+    //         throw Error('Element not found');
+    //     }
+    //     field.innerHTML = '<img id="character" style="transform: rotate(' + this.degree + 'deg);" src="img/character/muestra_pink.gif">';
+    // }
+
+    // remove() {
+    //     let elem = document.getElementById(this.id);
+    //     if (elem) {
+    //         elem.parentNode.removeChild(elem);
+    //     }
+    // }
 
     move() {
         console.log('move()');
