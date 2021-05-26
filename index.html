@@ -65,17 +65,17 @@
                     <div>19</div>
                     <div>20</div>
                 </div>
-                <textarea id="code" rows="15" class="code-editor">for 5:
-                     move(); 
-                     turn();
+                <textarea id="code" rows="15" class="code-editor">
                 </textarea>
+
+                <button id="nextButton" onclick="nextLevel()">Weiter</button>
             </div>
 
 
             <a href="#tbody"><img src="img/play.png" onclick="start()" class="play-button"></a>
 
             <div class="legal">
-                <p>Dieses Spiel wurde erstellt von der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie.</a>.</p>
+                <p>Dieses Spiel wurde erstellt von der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.</p>
                 <!-- <div>
                     <a target="_blank" href="https://developerakademie.com/imprint">Impressum</a> |
                     <a target="_blank" href="https://developerakademie.com/data-protection">Datenschutz</a>
@@ -109,6 +109,9 @@
             <a href="#"><button onclick="restart()">Erneut versuchen</button></a>
         </div>
     </div>
+
+
+    <script src="js/confetti.js"></script>
 
 </body>
 

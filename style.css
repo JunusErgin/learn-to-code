@@ -104,9 +104,34 @@ td:hover {
     font-weight: 500;
     font-size: 17px;
     border-bottom: 1px solid white;
-    cursor: pointer;
     height: 500px;
     resize: none;
+}
+
+#nextButton {
+    position: absolute;
+    right: 8px;
+    bottom: 13px;
+    background-color: var(--developer-akademie-color);
+    color: white;
+    font-size: 22px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+#nextButton:disabled {
+    opacity: 0.5;
+}
+
+#confetti-canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .editor-box {

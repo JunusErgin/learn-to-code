@@ -1,8 +1,4 @@
 let levelObj;
-
-let rows = 7;
-let cols = 7;
-
 let timeouts = [];
 let level = 1;
 
@@ -68,13 +64,18 @@ function isForLoop(token) {
 }
 
 function exec(func, timeout, row, token) {
-    let t = setTimeout(function () {
+    let t = setTimeout(function() {
         try {
             func();
-            if(levelObj.hasCollide())
+            if (levelObj.hasCollision()) {
                 throw Error('Collision');
-            
+            }
+
+            if (levelObj.planetReached()) {
+                levelObj.finish();
+            }
         } catch (e) {
+            console.log('Error', e);
             showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
             clearTimeouts();
         }
@@ -100,14 +101,13 @@ function restart() {
 }
 
 function init() {
-    createSpace();
     startLevel();
 }
 
-function createSpace(){
+function createSpace() {
     let tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
-    for (let i = 0; i < rows; i++) {
+    for (let i = 0; i < levelObj.rows; i++) {
 
         tbody.innerHTML += `<tr id="row${i}">
               ${generateCols(i)}
@@ -118,10 +118,10 @@ function createSpace(){
 
 function generateCols(row) {
     let html = '';
-    let width = 100 / cols;
-    let height = 100 / rows;
+    let width = 100 / levelObj.cols;
+    let height = 100 / levelObj.rows;
 
-    for (let i = 0; i < cols; i++) {
+    for (let i = 0; i < levelObj.cols; i++) {
         html += `<td style="width: ${width}%; height: ${height}%; " id="${i}x${row}"></td>`;
     }
 
@@ -130,11 +130,13 @@ function generateCols(row) {
 }
 
 function startLevel() {
+    document.getElementById('nextButton').disabled = true;
     let levelNumber = document.getElementById('levelNumber');
     levelNumber.innerHTML = level;
 
     levelObj = getLevel(level);
     levelObj.write('levelDescription', levelObj.levelDescription);
+    createSpace();
     levelObj.update();
 }
 
