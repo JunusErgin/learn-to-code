@@ -1,5 +1,5 @@
 :root {
-    --main-color: #1B1464;
+    --main-color: #1b1464;
     --developer-akademie-color: #fd7066;
     --card-padding-desktop: 60px;
     --card-padding-mobile: 16px;
@@ -85,7 +85,8 @@ td:hover {
     height: 400px;
     padding-left: 40px;
     border-radius: 10px;
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace, serif;
 }
 
 .space-object {
@@ -268,7 +269,7 @@ a:hover {
     color: var(--developer-akademie-color);
 }
 
-.mt-0{
+.mt-0 {
     margin-top: 0;
 }
 
@@ -295,7 +296,7 @@ a:hover {
 }
 
 @media (max-width: 500px) {
-    .space-object{
+    .space-object {
         width: 80%;
         height: auto;
         transition: all 125ms ease-in-out;

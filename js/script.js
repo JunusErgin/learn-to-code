@@ -43,26 +43,19 @@ function start() {
         }
         repeats = 1;
     }
-
-    //TODO CHECK IF CHARACTER REACHED TARGET
-    // if(levelObj.hasReachedTarget()){
-    //     console.log("TARGET REACHED");
-    // }else{
-    //     console.log("TARGET MISSED");
-    // }
 }
 
 function lastLevel() {
     if (level > 1) {
         level--;
-        startLevel();
+        init();
     }
 }
 
 function nextLevel() {
     if (level < 10) {
         level++;
-        startLevel();
+        init();
     }
 }
 
@@ -139,45 +132,13 @@ function generateCols(row) {
 function startLevel() {
     let levelNumber = document.getElementById('levelNumber');
     levelNumber.innerHTML = level;
-    if (level == 1) {
-        levelObj = level1();
-    }
 
-    if (level == 2) {
-        levelObj = level2();
-    }
-
+    levelObj = getLevel(level);
+    levelObj.write('levelDescription', levelObj.levelDescription);
     levelObj.update();
 }
 
-function level1() {
 
-    let character = new Character(0, 0, 90);
-    let danger = new Danger(3, 3, 0, 0);
-    let danger2 = new Danger(3, 0, 180, 1);
-    let planet = new Planet(6, 0, 0);
-
-    write('levelDescription', 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.');
-
-    return new Level(character, planet, [danger, danger2] );
-}
-
-function level2() {
-
-    let character = new Character(0, 6, 90);
-    let danger = new Danger(3, 3, 0, 0);
-    let danger2 = new Danger(4, 0, 0, 1);
-    let planet = new Planet(6, 1, 0);
-
-    write('levelDescription', 'Sammel den Diamanten ein. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.');
-    
-    return new Level(character, planet, [danger, danger2] );
-}
-
-function write(id, msg) {
-    let levelDescription = document.getElementById(id);
-    levelDescription.innerHTML = msg;
-}
 
 /**
  * 25.05.2021 - Moved to Character Class
