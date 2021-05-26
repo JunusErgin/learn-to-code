@@ -26,23 +26,51 @@ function getLevel(level) {
     }
 }
 
+const descriptionMove = `
+<ul>
+<li><code>move();</code> bewegt das Ufo ein Feld vorwärts</li>
+</ul>
+`;
+
+const descriptionTurn = `
+<ul>
+<li><code>turn();</code> dreht das Ufo nach rechts.</li>
+</ul>
+`;
+
+
+const descriptionFor = `
+<ul>
+<li><code>for();</code> wiederholt den nachfolgenden Befehl.</li>
+</ul>
+`;
+
+
 function level1() {
 
     let character = new Character(0, 3, 0);
     let planet = new Planet(0, 2, 0);
     let code = `move();`;
-    let levelDescription = `<b>Loper</b> ist auf dem Weg zum Planeten der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>. Verwende die Funktion <code class="text-color-da">move()</code>, um dich ein Feld nach vorne zu bewegen und den Planeten zu erreichen.`;
+    let levelDescription = `<b>Loper</b> ist auf dem Weg zum Planeten der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>. Verwende die Funktion <code class="text-color-da">move()</code>, um dich ein Feld nach vorne zu bewegen und den Planeten zu erreichen.
+    
+    ${descriptionMove}
+    `;
 
     return new Level(character, planet, [], levelDescription, code, 5, 5);
 }
 
 function level2() {
 
-    let character = new Character(0, 5, 0);
-    let planet = new Planet(1, 4, 0);
-    let levelDescription = 'Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let character = new Character(1, 3, 0);
+    let planet = new Planet(2, 2, 0);
+    let levelDescription = `Bringe Loper sicher zum Planeter der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.
+    Verwende hierfür <code  class="text-color-da">move();</code> und <code  class="text-color-da">turn();</code>.
+    
+    ${descriptionMove}
+    ${descriptionTurn}
+    `;
 
-    return new Level(character, planet, [], levelDescription);
+    return new Level(character, planet, [], levelDescription, '', 5, 5);
 }
 
 function level3() {

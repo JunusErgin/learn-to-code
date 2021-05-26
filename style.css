@@ -121,6 +121,15 @@ td:hover {
     transition: all 225ms ease-in-out;
 }
 
+ul:first-of-type {
+    margin-block-start: 1em !important;
+}
+
+ul {
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
 #nextButton:disabled {
     opacity: 0.5;
 }

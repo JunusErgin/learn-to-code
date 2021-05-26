@@ -9,6 +9,10 @@ function start() {
     let repeats = 1;
     let iteration = 0;
 
+    if (tokens.length == 0) {
+        showDialog('Bitte gebe mindestens einen Befehl auf der linken Seite ein.');
+    }
+
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i].trim();
         let row = i + 1;
