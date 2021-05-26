@@ -85,12 +85,11 @@ td:hover {
     height: 400px;
     padding-left: 40px;
     border-radius: 10px;
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-        Courier New, monospace, serif;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
 
 .space-object {
-    width: 80%;
+    width: 100%;
     height: auto;
     transition: all 125ms ease-in-out;
 }
@@ -137,11 +136,16 @@ td:hover {
     /* color: rgba(255, 255, 255, 0.8); */
 }
 
+.logo {
+    margin-bottom: 16px;
+}
+
 a {
-    color: rgba(0, 0, 0, 0.8);
+    /* color: rgba(0, 0, 0, 0.8); */
     text-decoration: none;
-    margin-left: 8px;
-    margin-right: 8px;
+    color: var(--developer-akademie-color);
+    /* margin-left: 8px;
+    margin-right: 8px; */
 }
 
 a:hover {
@@ -297,7 +301,7 @@ a:hover {
 
 @media (max-width: 500px) {
     .space-object {
-        width: 80%;
+        width: 100%;
         height: auto;
         transition: all 125ms ease-in-out;
     }

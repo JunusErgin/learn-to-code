@@ -1,10 +1,12 @@
-class SpaceObject{
+class SpaceObject {
     x;
     y;
     degree;
+    scale = 1.3;
     id;
     img;
-    constructor(x, y, degree){
+    transformX = '0px';
+    constructor(x, y, degree) {
         this.x = x;
         this.y = y;
         this.degree = degree;
@@ -18,7 +20,7 @@ class SpaceObject{
         if (!field) {
             throw Error('Element not found');
         }
-        field.innerHTML = `<img class="space-object" id="${this.id}" style="transform: rotate(${this.degree}deg);" src="${this.img}">`;
+        field.innerHTML = `<img class="space-object" id="${this.id}" style="transform: rotate(${this.degree}deg) scale(${this.scale}) translateX(${this.transformX});" src="${this.img}">`;
     }
 
     remove() {

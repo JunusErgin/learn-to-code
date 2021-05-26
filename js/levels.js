@@ -30,7 +30,7 @@ function level1() {
 
     let character = new Character(0, 6, 0);
     let planet = new Planet(0, 5, 0);
-    let levelDescription = 'Verwende die Funktion <code class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.';
+    let levelDescription = `<b>Loper</b> ist auf dem Weg zum Planeten der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>. Verwende die Funktion <code class="text-color-da">move()</code>, um dich ein Feld nach vorne zu bewegen und den Planeten zu erreichen.`;
 
     return new Level(character, planet, [], levelDescription);
 }
