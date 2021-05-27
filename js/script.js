@@ -1,6 +1,7 @@
 let levelObj;
 let timeouts = [];
 let level = 1;
+const GAME_SPEED = 800;
 
 function start() {
     document.getElementById('nextButton').disabled = true;
@@ -12,7 +13,7 @@ function start() {
 
     console.log('tokens.length ', code.value.length);
     if (tokens.length == 0 || code.value.trim().length == 0) {
-        showDialog('Bitte gebe mindestens einen Befehl auf der linken Seite ein.');
+        showDialog('Bitte gebe mindestens einen Befehl in den Code-Editor ein.');
     }
 
     for (let i = 0; i < tokens.length; i++) {
@@ -40,17 +41,22 @@ function start() {
             else if (token == 'turn();')
                 func = levelObj.character.turn.bind(levelObj.character);
 
-            exec(func, 1000 * iteration, row, token);
+            exec(func, GAME_SPEED * iteration, row, token);
             iteration++;
         }
         repeats = 1;
     }
-    setTimeout(allLinesExecuted, 1000 * (iteration - 1));
+    setTimeout(allLinesExecuted, GAME_SPEED * (iteration - 1) + 100);
 }
 
 function allLinesExecuted() {
+    console.log('allLinesExecuted', levelObj.planetReached());
     if (!levelObj.planetReached()) {
         showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.');
+    } else {
+        if (!levelObj.finished) {
+            levelObj.finish();
+        }
     }
     document.getElementById('nextButton').disabled = false;
 }
@@ -97,15 +103,15 @@ function exec(func, timeout, row, token) {
         try {
 
             if (levelObj.planetReached()) {
-                
+
                 levelObj.finish();
-            }else{
+            } else {
                 func();
                 if (levelObj.hasCollision()) {
                     throw Error('Collision');
                 }
             }
- 
+
         } catch (e) {
             console.log('Error', e);
             showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');

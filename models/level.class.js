@@ -6,7 +6,7 @@ class Level {
     code = '';
     rows = 7;
     cols = 7;
-
+    finished = false;
     constructor(character, planet, dangers, levelDescription, code, rows, cols) {
         this.character = character;
         this.planet = planet;
@@ -23,7 +23,7 @@ class Level {
         this.dangers.forEach(danger => {
             danger.update();
         });
-        document.getElementById('code').innerHTML = this.code;
+        // document.getElementById('code').value = this.code;
     }
 
     hasReachedTarget() {
@@ -51,6 +51,7 @@ class Level {
         button.disabled = false;
         button.innerHTML = 'Weiter';
         button.style = 'transform: scale(1.5) rotate(10deg)';
+        this.finished = true;
         startConfetti();
         setTimeout(() => {
             button.style = 'transform: scale(1.5) rotate(-10deg)';

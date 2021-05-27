@@ -41,7 +41,7 @@ const descriptionTurn = `
 
 const descriptionFor = `
 <ul>
-<li><code>for();</code> wiederholt den nachfolgenden Befehl.</li>
+<li><code>for x:</code> wiederholt den nachfolgenden Befehl x mal. Ersetze x durch eine Zahl.</li>
 </ul>
 `;
 
@@ -75,28 +75,38 @@ function level2() {
 
 function level3() {
 
-    let character = new Character(1, 4, 90);
-    let dangers = [new Danger(6, 5, 0), new Danger(6, 4, 0)];
-    let planet = new Planet(6, 6, 0);
-    let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let character = new Character(1, 2, 90);
+    let dangers = [new Danger(3, 2, 0), new Danger(4, 2, 0)];
+    let planet = new Planet(4, 3, 0);
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren. 
+    ${descriptionMove}
+    ${descriptionTurn}
+    `;
 
-    return new Level(character, planet, dangers, levelDescription);
+    return new Level(character, planet, dangers, levelDescription, '', 5, 5);
 }
 
 function level4() {
 
-    let character = new Character(6, 6, 90);
-    let planet = new Planet(0, 6, 0);
-    let levelDescription = 'Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let character = new Character(1, 2, 0);
+    let dangers = [new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(2, 2, 0), new Danger(2, 3, 0)];
+    let planet = new Planet(0, 4, 0);
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren. 
+    ${descriptionMove}
+    ${descriptionTurn}
+    `;
 
-    return new Level(character, planet, [], levelDescription);
+    return new Level(character, planet, dangers, levelDescription, '', 5, 5);
 }
 
 function level5() {
 
     let character = new Character(0, 6, 0);
     let planet = new Planet(0, 0, 0);
-    let levelDescription = 'Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.';
+    let levelDescription = `Erreiche den Platen, ohne den Befehl <code>move();</code> mehrfach auszuführen. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.
+    ${descriptionFor}    
+    ${descriptionMove}
+    `;
 
     return new Level(character, planet, [], levelDescription);
 }
