@@ -45,8 +45,11 @@ class Level {
     }
 
     finish() {
+        document.getElementById('code').disabled = true;
+        document.getElementById('code').style = 'opacity: 0.6;';
         let button = document.getElementById('nextButton');
         button.disabled = false;
+        button.innerHTML = 'Weiter';
         button.style = 'transform: scale(1.5) rotate(10deg)';
         startConfetti();
         setTimeout(() => {

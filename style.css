@@ -16,6 +16,7 @@ body {
     color: white;
     min-height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
 h1 {
@@ -82,7 +83,7 @@ td:hover {
     box-sizing: border-box;
     padding: 16px;
     line-height: 1.2;
-    height: 400px;
+    /* height: 400px; */
     padding-left: 40px;
     border-radius: 10px;
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -98,26 +99,30 @@ td:hover {
     width: 50%;
     padding: 32px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #code {
     font-weight: 500;
     font-size: 17px;
     border-bottom: 1px solid white;
-    height: 500px;
+    transition: all 225ms ease-in-out;
+    /* height: 500px; */
     resize: none;
 }
 
 #nextButton {
     position: absolute;
-    right: 8px;
-    bottom: 13px;
+    right: 18px;
+    bottom: 23px;
     background-color: var(--developer-akademie-color);
     color: white;
     font-size: 22px;
     padding: 8px 24px;
     border-radius: 4px;
     cursor: pointer;
+    border: unset;
     transition: all 225ms ease-in-out;
 }
 
@@ -146,13 +151,23 @@ ul {
 .editor-box {
     position: relative;
     width: 100%;
+    overflow: hidden;
+}
+
+.title {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.margin-bottom-32 {
+    margin-bottom: 32px;
 }
 
 .editor-lines {
     height: 400px;
     position: absolute;
-    left: 10px;
+    left: 18px;
     top: 16px;
+    z-index: 1;
     color: rgba(255, 255, 255, 0.5);
     /* font-size: 13px; */
     /* line-height: 16px; */
@@ -216,7 +231,7 @@ a:hover {
 }
 
 #errorDialog div span {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 #errorDialog div button {
@@ -289,6 +304,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
 }
 
 .card h2 {
@@ -307,13 +323,40 @@ a:hover {
     color: var(--developer-akademie-color);
 }
 
+code {
+    border-bottom: 1px solid var(--developer-akademie-color);
+}
+
 .mt-0 {
     margin-top: 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding: 16px;
+}
+
+.footer-item {
+    width: 45%;
+}
+
+.vertical-seperator {
+    height: 100px;
+    width: 1px;
+    background-color: var(--developer-akademie-color);
 }
 
 @media (max-width: 1000px) {
     body {
         flex-direction: column;
+        overflow: unset;
+        padding-top: 16px;
+    }
+    .card {
+        border-radius: 4px;
     }
     .coding-container {
         width: auto;
@@ -323,6 +366,10 @@ a:hover {
     }
 }
 
+.hide-desktop {
+    display: none;
+}
+
 @media (max-width: 700px) {
     .space-between {
         flex-direction: column;
@@ -330,6 +377,12 @@ a:hover {
     }
     .coding-container {
         padding: 0;
+    }
+    .hide-mobile {
+        display: none;
+    }
+    .hide-desktop {
+        display: flex;
     }
 }
 

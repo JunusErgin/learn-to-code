@@ -8,6 +8,9 @@
     <title>Developer Akademie</title>
     <link rel="icon" href="img/da.png">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="style.css">
 
@@ -23,8 +26,9 @@
 
 <body onload="init()">
     <div class="coding-container">
-        <div class="space-between">
-            <img class="logo" src="img/developer akademie logo white.png">
+        <div class="space-between margin-bottom-32">
+            <span></span>
+            <!-- <img class="logo" src="img/developer akademie logo white.png"> -->
             <!-- <h1>Developer Akademie</h1> -->
 
             <div class="level-picker">
@@ -37,7 +41,7 @@
 
         <div class="card ">
             <div style="width: 100%;">
-                <h2 class="text-color-main mt-0">Loper's Trip</h2>
+                <h2 class="text-color-main mt-0 title">Loper's Trip</h2>
                 <p id="levelDescription"></p>
             </div>
 
@@ -68,20 +72,33 @@
                 <textarea id="code" rows="15" class="code-editor">
                 </textarea>
 
-                <button id="nextButton" onclick="nextLevel()">Weiter</button>
+                <button id="nextButton" onclick="handleButton()">Play</button>
             </div>
 
 
-            <a href="#tbody"><img src="img/play.png" onclick="start()" class="play-button"></a>
+            <!-- <a href="#tbody"><img src="img/play.png" onclick="start()" class="play-button"></a> -->
 
             <div class="legal">
-                <p>Dieses Spiel wurde erstellt von der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.</p>
                 <!-- <div>
                     <a target="_blank" href="https://developerakademie.com/imprint">Impressum</a> |
                     <a target="_blank" href="https://developerakademie.com/data-protection">Datenschutz</a>
                 </div> -->
             </div>
         </div>
+
+        <div class="footer hide-mobile ">
+            <div class="footer-item">
+                <img class="logo" src="img/developer akademie logo white.png">
+            </div>
+
+            <div class="vertical-seperator"></div>
+
+            <div class="footer-item">
+                <p>Dieses Spiel wurde erstellt von der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.</p>
+            </div>
+        </div>
+
+
 
     </div>
 
@@ -93,6 +110,20 @@
         </table>
 
     </div>
+
+
+    <div class="footer hide-desktop">
+        <div class="footer-item">
+            <img class="logo" src="img/developer akademie logo white.png">
+        </div>
+
+        <div class="vertical-seperator"></div>
+
+        <div class="footer-item">
+            <p>Dieses Spiel wurde erstellt von der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.</p>
+        </div>
+    </div>
+
 
     <div id="errorDialog" style="display: none;">
         <div>

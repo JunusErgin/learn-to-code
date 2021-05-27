@@ -3,6 +3,7 @@ let timeouts = [];
 let level = 1;
 
 function start() {
+    document.getElementById('nextButton').disabled = true;
     let code = document.getElementById('code');
     let tokens = code.value.split('\n');
 
@@ -43,6 +44,24 @@ function start() {
         }
         repeats = 1;
     }
+    setTimeout(allLinesExecuted, 1000 * iteration);
+}
+
+function allLinesExecuted() {
+    if (!levelObj.planetReached()) {
+        showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.');
+    }
+    document.getElementById('nextButton').disabled = false;
+}
+
+function handleButton() {
+    const nextButton = document.getElementById('nextButton');
+    if (nextButton.innerHTML == 'Play') {
+        start();
+    } else {
+        nextLevel();
+    }
+
 }
 
 function lastLevel() {
@@ -53,6 +72,12 @@ function lastLevel() {
 }
 
 function nextLevel() {
+    let nextButton = document.getElementById('nextButton');
+    nextButton.innerHTML = 'Play';
+    nextButton.disabled = false;
+    document.getElementById('code').disabled = false;
+    document.getElementById('code').style = 'opacity: 1;';
+
     if (level < 10) {
         level++;
         init();
@@ -92,10 +117,17 @@ function clearTimeouts() {
 }
 
 function showDialog(msg) {
+    if (!dialogIsOpen()) {
+        let errorDialog = document.getElementById('errorDialog');
+        let errorMsg = document.getElementById('errorMsg');
+        errorMsg.innerHTML = msg;
+        errorDialog.style.display = 'flex';
+    }
+}
+
+function dialogIsOpen() {
     let errorDialog = document.getElementById('errorDialog');
-    let errorMsg = document.getElementById('errorMsg');
-    errorMsg.innerHTML = msg;
-    errorDialog.style.display = 'flex';
+    return errorDialog.style.display == 'flex';
 }
 
 function restart() {
@@ -134,7 +166,6 @@ function generateCols(row) {
 }
 
 function startLevel() {
-    document.getElementById('nextButton').disabled = true;
     let levelNumber = document.getElementById('levelNumber');
     levelNumber.innerHTML = level;
 
