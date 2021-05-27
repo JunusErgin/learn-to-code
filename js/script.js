@@ -62,7 +62,6 @@ function handleButton() {
     } else {
         nextLevel();
     }
-
 }
 
 function lastLevel() {
@@ -96,15 +95,17 @@ function isForLoop(token) {
 function exec(func, timeout, row, token) {
     let t = setTimeout(function() {
         try {
-            func();
-            if (levelObj.hasCollision()) {
-                throw Error('Collision');
-            }
 
             if (levelObj.planetReached()) {
                 
                 levelObj.finish();
+            }else{
+                func();
+                if (levelObj.hasCollision()) {
+                    throw Error('Collision');
+                }
             }
+ 
         } catch (e) {
             console.log('Error', e);
             showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
