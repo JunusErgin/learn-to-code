@@ -1,7 +1,8 @@
 class Danger extends SpaceObject{
-    constructor(x, y, degree, id){
+    static count = 0;
+    constructor(x, y, degree){
         super(x, y, degree);
-        this.id = 'danger'+id;
+        this.id = Danger.count++;
         this.img = 'img/planets/Dangerous.png';
     }
 }

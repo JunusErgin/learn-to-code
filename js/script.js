@@ -102,6 +102,7 @@ function exec(func, timeout, row, token) {
             }
 
             if (levelObj.planetReached()) {
+                
                 levelObj.finish();
             }
         } catch (e) {

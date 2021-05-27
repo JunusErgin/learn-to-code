@@ -76,7 +76,7 @@ function level2() {
 function level3() {
 
     let character = new Character(1, 4, 90);
-    let dangers = [new Danger(6, 5, 0, 0), new Danger(6, 4, 0, 0)];
+    let dangers = [new Danger(6, 5, 0), new Danger(6, 4, 0)];
     let planet = new Planet(6, 6, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
@@ -86,8 +86,6 @@ function level3() {
 function level4() {
 
     let character = new Character(6, 6, 90);
-    // let danger = new Danger(3, 3, 0, 0);
-    // let danger2 = new Danger(4, 0, 0, 1);
     let planet = new Planet(0, 6, 0);
     let levelDescription = 'Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
@@ -97,8 +95,6 @@ function level4() {
 function level5() {
 
     let character = new Character(0, 6, 0);
-    // let danger = new Danger(3, 3, 0, 0);
-    // let danger2 = new Danger(3, 0, 180, 1);
     let planet = new Planet(0, 0, 0);
     let levelDescription = 'Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.';
 
@@ -108,19 +104,15 @@ function level5() {
 function level6() {
 
     let character = new Character(0, 0, 90);
-    let danger = new Danger(3, 3, 0, 0);
-    let danger2 = new Danger(4, 0, 0, 1);
     let planet = new Planet(6, 1, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
-    return new Level(character, planet, [danger, danger2], levelDescription);
+    return new Level(character, planet, [], levelDescription);
 }
 
 function level7() {
 
     let character = new Character(0, 0, 90);
-    // let danger = new Danger(3, 3, 0, 0);
-    // let danger2 = new Danger(3, 0, 180, 1);
     let planet = new Planet(6, 0, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
@@ -130,19 +122,15 @@ function level7() {
 function level8() {
 
     let character = new Character(0, 0, 90);
-    let danger = new Danger(3, 3, 0, 0);
-    let danger2 = new Danger(4, 0, 0, 1);
     let planet = new Planet(6, 1, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
-    return new Level(character, planet, [danger, danger2], levelDescription);
+    return new Level(character, planet, [], levelDescription);
 }
 
 function level9() {
 
     let character = new Character(0, 0, 90);
-    // let danger = new Danger(3, 3, 0, 0);
-    // let danger2 = new Danger(3, 0, 180, 1);
     let planet = new Planet(6, 0, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
@@ -152,10 +140,8 @@ function level9() {
 function level10() {
 
     let character = new Character(0, 0, 90);
-    let danger = new Danger(3, 3, 0, 0);
-    let danger2 = new Danger(4, 0, 0, 1);
     let planet = new Planet(6, 1, 0);
     let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
 
-    return new Level(character, planet, [danger, danger2], levelDescription);
+    return new Level(character, planet, [], levelDescription);
 }
