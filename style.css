@@ -199,7 +199,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: black;
+    color: var(--developer-akademie-color);
 }
 
 #errorDialog {
@@ -212,6 +212,11 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
 }
 
 #errorDialog div {

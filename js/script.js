@@ -10,7 +10,8 @@ function start() {
     let repeats = 1;
     let iteration = 0;
 
-    if (tokens.length == 0) {
+    console.log('tokens.length ', code.value.length);
+    if (tokens.length == 0 || code.value.trim().length == 0) {
         showDialog('Bitte gebe mindestens einen Befehl auf der linken Seite ein.');
     }
 
@@ -44,7 +45,7 @@ function start() {
         }
         repeats = 1;
     }
-    setTimeout(allLinesExecuted, 1000 * iteration);
+    setTimeout(allLinesExecuted, 1000 * (iteration - 1));
 }
 
 function allLinesExecuted() {
