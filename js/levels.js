@@ -103,7 +103,7 @@ function level5() {
 
     let character = new Character(0, 6, 0);
     let planet = new Planet(0, 0, 0);
-    let levelDescription = `Erreiche den Platen, ohne den Befehl <code>move();</code> mehrfach auszuführen. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.
+    let levelDescription = `Erreiche den Platen, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.
     ${descriptionFor}    
     ${descriptionMove}
     `;
@@ -114,10 +114,18 @@ function level5() {
 function level6() {
 
     let character = new Character(0, 0, 90);
-    let planet = new Planet(6, 1, 0);
-    let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let dangersRow = [ new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(3, 1, 0), new Danger(4, 1, 0)];
+    let dangersRow2 = [ new Danger(0, 5, 0), new Danger(1, 5, 0), new Danger(2, 5, 0), new Danger(3, 5, 0), new Danger(4, 5, 0)];
+    let dangersCol = [ new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
+    let allDangers = dangersCol.concat(dangersRow, dangersRow2);
+    let planet = new Planet(0, 6, 0);
+    let levelDescription = `Erreiche den Platen, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen und <b>ohne</b> mit einem Meteoriten zu kollidieren. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>, um dich zur Developer Akademie zu begeben.
+    ${descriptionFor}    
+    ${descriptionMove}
+    ${descriptionTurn}
+    `;
 
-    return new Level(character, planet, [], levelDescription);
+    return new Level(character, planet, allDangers, levelDescription);
 }
 
 function level7() {
