@@ -13,7 +13,6 @@ class SpaceObject {
     }
 
     update() {
-
         this.remove();
         let id = this.x + 'x' + this.y;
         let field = document.getElementById(id);

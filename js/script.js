@@ -99,9 +99,9 @@ function isForLoop(token) {
 }
 
 function exec(func, timeout, row, token) {
+
     let t = setTimeout(function() {
         try {
-
             if (levelObj.planetReached()) {
 
                 levelObj.finish();
@@ -112,9 +112,15 @@ function exec(func, timeout, row, token) {
                 }
             }
 
+            levelObj.moveEnemies();
+
         } catch (e) {
             console.log('Error', e);
-            showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
+            if (e.message == 'EnemyCollision') {
+                showDialog('Du wurdest von einem anderen Ufo erwischt!!');
+            } else {
+                showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
+            }
             clearTimeouts();
         }
     }, timeout);

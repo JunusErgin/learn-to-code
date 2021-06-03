@@ -7,6 +7,8 @@ class Level {
     rows = 7;
     cols = 7;
     finished = false;
+    enemies = [];
+
     constructor(character, planet, dangers, levelDescription, code, rows, cols) {
         this.character = character;
         this.planet = planet;
@@ -20,10 +22,15 @@ class Level {
     update() {
         this.character.update();
         this.planet.update();
-        this.dangers.forEach(danger => {
-            danger.update();
-        });
+        this.dangers.forEach(d => d.update());
+        this.enemies.forEach(e => e.update());
         // document.getElementById('code').value = this.code;
+    }
+
+    moveEnemies() {
+        this.enemies.forEach(e => setTimeout(() => {
+            e.move(this.character);
+        }, 300));
     }
 
     hasReachedTarget() {

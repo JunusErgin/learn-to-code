@@ -114,9 +114,9 @@ function level5() {
 function level6() {
 
     let character = new Character(0, 0, 90);
-    let dangersRow = [ new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(3, 1, 0), new Danger(4, 1, 0)];
-    let dangersRow2 = [ new Danger(0, 5, 0), new Danger(1, 5, 0), new Danger(2, 5, 0), new Danger(3, 5, 0), new Danger(4, 5, 0)];
-    let dangersCol = [ new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
+    let dangersRow = [new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(3, 1, 0), new Danger(4, 1, 0)];
+    let dangersRow2 = [new Danger(0, 5, 0), new Danger(1, 5, 0), new Danger(2, 5, 0), new Danger(3, 5, 0), new Danger(4, 5, 0)];
+    let dangersCol = [new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
     let allDangers = dangersCol.concat(dangersRow, dangersRow2);
     let planet = new Planet(0, 6, 0);
     let levelDescription = `Erreiche den Platen, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen und <b>ohne</b> mit einem Meteoriten zu kollidieren. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>, um dich zur Developer Akademie zu begeben.
@@ -132,9 +132,15 @@ function level7() {
 
     let character = new Character(0, 0, 90);
     let planet = new Planet(6, 0, 0);
-    let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let levelDescription = 'Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!';
+    let dangers = [new Danger(1, 3, 0)];
 
-    return new Level(character, planet, [], levelDescription);
+    let level = new Level(character, planet, dangers, levelDescription);
+
+    level.enemies.push(new Enemy(2, 3));
+    level.enemies.push(new Enemy(3, 5));
+
+    return level;
 }
 
 function level8() {
