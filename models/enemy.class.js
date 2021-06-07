@@ -19,9 +19,9 @@ class Enemy extends SpaceObject {
         }
         this.steps++;
 
-        if (character.x == this.x && character.y == this.y) {
-            throw new Error('EnemyCollision');
-        }
+        // if (character.x == this.x && character.y == this.y) {
+        //     throw new Error('EnemyCollision');
+        // }
 
         this.update();
 

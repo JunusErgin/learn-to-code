@@ -1,6 +1,6 @@
 class Level {
     character;
-    planet;
+    planets;
     dangers;
     levelDescription;
     code = '';
@@ -8,10 +8,11 @@ class Level {
     cols = 7;
     finished = false;
     enemies = [];
+    targetsReached = 0;
 
-    constructor(character, planet, dangers, levelDescription, code, rows, cols) {
+    constructor(character, planets, dangers, levelDescription, code, rows, cols) {
         this.character = character;
-        this.planet = planet;
+        this.planets = planets;
         this.dangers = dangers;
         this.levelDescription = levelDescription;
         this.code = code || '';
@@ -21,7 +22,7 @@ class Level {
 
     update() {
         this.character.update();
-        this.planet.update();
+        this.planets.forEach(p => p.update());
         this.dangers.forEach(d => d.update());
         this.enemies.forEach(e => e.update());
         // document.getElementById('code').value = this.code;
@@ -34,15 +35,19 @@ class Level {
     }
 
     hasReachedTarget() {
-        return this.character.x == this.planet.x && this.character.y == this.planet.y;
+        return this.character.x == this.planets[0].x && this.character.y == this.planets[0].y;
     }
 
-    hasCollision() {
+    isCollidingDanger() {
         return this.dangers.some(danger => danger.x == this.character.x && danger.y == this.character.y);
     }
 
+    isCollidingEnemy() {
+        return this.enemies.some(enemy => enemy.x == this.character.x && enemy.y == this.character.y);
+    }
+
     planetReached() {
-        return this.planet.x == this.character.x && this.planet.y == this.character.y
+        return this.planets[0].x == this.character.x && this.planets[0].y == this.character.y;
     }
 
 

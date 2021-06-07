@@ -55,4 +55,8 @@ class Character extends SpaceObject{
         this.degree += 90;
         this.update();
     }
+
+    stay(){
+        this.update();
+    }
 }
