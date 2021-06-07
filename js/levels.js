@@ -18,7 +18,7 @@ function getLevel(level) {
             return level8();
         case 9:
             return level9();
-        case 0:
+        case 10:
             return level10();
         default:
             return level1();
@@ -165,7 +165,7 @@ for 6:
 move();
 turn();
 for 5:
-move();
+move(); 
      */
 
     let character = new Character(6, 0, 180);
@@ -187,17 +187,34 @@ move();
 function level9() {
 
     let character = new Character(0, 0, 90);
-    let planet = new Planet(6, 0, 0);
-    let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let planets = [new Planet(6, 6, 0)];
+    let dangers = [new Danger(6, 0, 0), new Danger(0, 1, 0)];
+    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    ${descriptionFor}    
+    ${descriptionMove}
+    ${descriptionTurn}
+    ${descriptionStay}`;
 
-    return new Level(character, planet, [], levelDescription);
+    let level = new Level(character, planets, dangers, levelDescription);
+
+    level.enemies.push(new Enemy(5, 6));
+
+    return level;
 }
 
 function level10() {
 
     let character = new Character(0, 0, 90);
-    let planet = new Planet(6, 1, 0);
-    let levelDescription = 'Vermeiden Sie die Meteoriten. Verwende hierfür <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>.';
+    let planets = [new Planet(6, 1, 0)];
+    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    ${descriptionFor}    
+    ${descriptionMove}
+    ${descriptionTurn}
+    ${descriptionStay}`;
 
-    return new Level(character, planet, [], levelDescription);
+    let level = new Level(character, planets, [], levelDescription);
+
+    level.enemies.push(new Enemy(6, 0));
+
+    return level;
 }
