@@ -35,7 +35,7 @@ class Level {
     }
 
     hasReachedTarget() {
-        return this.character.x == this.planets[0].x && this.character.y == this.planets[0].y;
+        return this.planets.some(planet => planet.x == this.planet.x && danger.y == this.planet.y);
     }
 
     isCollidingDanger() {

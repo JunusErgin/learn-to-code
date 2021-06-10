@@ -142,7 +142,7 @@ function level7() {
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}`;
-    let dangers = [new Danger(1, 3, 0)];
+    let dangers = [new Danger(3, 0, 0)];
 
     let level = new Level(character, planets, dangers, levelDescription);
 
@@ -187,17 +187,20 @@ move();
 function level9() {
 
     let character = new Character(0, 0, 90);
-    let planets = [new Planet(6, 6, 0)];
-    let dangers = [new Danger(6, 0, 0), new Danger(0, 1, 0)];
+    let planets = [new Planet(6, 3, 0)];
+    let dangersRow = [new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(3, 1, 0), new Danger(4, 1, 0)];
+    let dangersRow2 = [new Danger(0, 5, 0), new Danger(1, 5, 0), new Danger(2, 5, 0), new Danger(3, 5, 0), new Danger(4, 5, 0)];
+    let dangersCol = [new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
+    let allDangers = dangersCol.concat(dangersRow, dangersRow2);
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
     ${descriptionStay}`;
 
-    let level = new Level(character, planets, dangers, levelDescription);
+    let level = new Level(character, planets, allDangers, levelDescription);
 
-    level.enemies.push(new Enemy(5, 6));
+    level.enemies.push(new Enemy(0, 6));
 
     return level;
 }

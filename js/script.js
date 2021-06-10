@@ -40,7 +40,7 @@ function start() {
                 func = levelObj.character.move.bind(levelObj.character); //The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
             else if (token == 'turn();')
                 func = levelObj.character.turn.bind(levelObj.character);
-            else if( token == 'stay();')
+            else if (token == 'stay();')
                 func = levelObj.character.stay.bind(levelObj.character);
 
             exec(func, GAME_SPEED * iteration, row, token);
@@ -101,29 +101,29 @@ function isForLoop(token) {
 }
 
 function exec(func, timeout, row, token) {
+    // console.log("EXECUTE: ", { func: func, timeout: timeout, row: row, token: token });
 
-    let t = setTimeout(function() {
+    let t = setTimeout(function () {
         try {
+            
             if (levelObj.planetReached()) {
-
                 levelObj.finish();
-            } else {
+            } else {          
+                if (levelObj.isCollidingEnemy()) {
+                    throw Error('EnemyCollision');
+                }
                 func();
                 if (levelObj.isCollidingDanger()) {
                     throw Error('DangerCollision');
                 }
-                if(levelObj.isCollidingEnemy()){
-                    throw Error('EnemyCollision');
-                }
             }
-
             levelObj.moveEnemies();
-
         } catch (e) {
-            console.log('Error', e);
+
+            console.error('Error', e);
             if (e.message == 'EnemyCollision') {
                 showDialog('Du wurdest von einem anderen Ufo erwischt!!');
-            }else if ( e.message == 'DangerCollision'){
+            } else if (e.message == 'DangerCollision') {
                 showDialog('Du hast ein Meteorit erwischt!!');
             } else {
                 showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
