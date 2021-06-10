@@ -185,7 +185,7 @@ function level8() {
 
     /**
      * Winning moves 
-for 3:
+for 4:
 stay();
 for 6:
 move();
@@ -194,21 +194,22 @@ for 6:
 move();
 turn();
 for 5:
-move(); 
+move();
      */
 
     let character = new Character(6, 0, 180);
-    let planets = [new Planet(0, 1, 0), new Planet(0, 6, 0)];
+    let planets = [new Planet(0, 1, 0), new Planet(0, 5, 0)];
+    let dangers = [new Danger(1, 1, 0), new Danger(1, 2, 0), new Danger(1, 3, 0), new Danger(1, 4, 0), new Danger(1, 5, 0)];
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
     ${descriptionStay}`;
 
-    let level = new Level(character, planets, [], levelDescription);
+    let level = new Level(character, planets, dangers, levelDescription);
 
     level.enemies.push(new Enemy(0, 0));
-    level.enemies.push(new Enemy(1, 6));
+    level.enemies.push(new Enemy(0, 6));
 
     return level;
 }
