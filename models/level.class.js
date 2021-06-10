@@ -34,6 +34,12 @@ class Level {
         }, 300));
     }
 
+    moveMeteorites(){
+        this.dangers.forEach(d =>setTimeout(() =>{
+            d.move();
+        }, 300));
+    }
+
     hasReachedTarget() {
         return this.planets.some(planet => planet.x == this.planet.x && danger.y == this.planet.y);
     }

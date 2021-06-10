@@ -120,6 +120,7 @@ function exec(func, timeout, row, token) {
                 }
             }
             levelObj.moveEnemies();
+            //levelObj.moveMeteorites();
         } catch (e) {
 
             console.error('Error', e);

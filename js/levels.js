@@ -218,8 +218,8 @@ function level9() {
 
     let character = new Character(0, 0, 90);
     let planets = [new Planet(6, 3, 0)];
-    let dangersRow = [new Danger(0, 1, 0), new Danger(1, 1, 0), new Danger(2, 1, 0), new Danger(3, 1, 0), new Danger(4, 1, 0)];
-    let dangersRow2 = [new Danger(0, 5, 0), new Danger(1, 5, 0), new Danger(2, 5, 0), new Danger(3, 5, 0), new Danger(4, 5, 0)];
+    let dangersRow = [new Danger(0, 1, 0), new Danger(1, 2, 0), new Danger(2, 1, 0), new Danger(3, 2, 0), new Danger(4, 1, 0)];
+    let dangersRow2 = [new Danger(0, 5, 0), new Danger(1, 4, 0), new Danger(2, 5, 0), new Danger(3, 4, 0), new Danger(4, 5, 0)];
     let dangersCol = [new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
     let allDangers = dangersCol.concat(dangersRow, dangersRow2);
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!

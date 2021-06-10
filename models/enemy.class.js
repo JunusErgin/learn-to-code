@@ -7,6 +7,7 @@ class Enemy extends SpaceObject {
         this.id = 'enemy' + Enemy.count++;
         let img = Enemy.count % 2 == 0 ? 'muestra_green.gif' : 'muestra_yellow.gif';
         this.img = 'img/character/' + img;
+
     }
 
     move(character) {
@@ -24,7 +25,7 @@ class Enemy extends SpaceObject {
         // }
 
         this.update();
-
+        
     }
 
     fieldIsOk(x, y) {
