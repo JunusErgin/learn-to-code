@@ -136,18 +136,47 @@ function level6() {
 
 function level7() {
 
+    /**
+     * Winning Moves 1
+ for 2:
+move();
+turn();
+move();
+for 3:
+turn();
+for 4:
+move();
+for 3:
+turn();
+move();
+     */
+
+/**
+ * Winning Moves 2
+turn();
+move();
+for 3:
+turn();
+for 6:
+move();
+for 3:
+turn();
+move();
+
+ */
+
     let character = new Character(0, 0, 90);
     let planets = [new Planet(6, 0, 0)];
+    let dangers = [new Danger(3, 0, 0), new Danger(5, 5, 0), new Danger(6, 5, 0),  new Danger(4, 5, 0), new Danger(3, 5, 0)];
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}`;
-    let dangers = [new Danger(3, 0, 0)];
 
     let level = new Level(character, planets, dangers, levelDescription);
 
-    level.enemies.push(new Enemy(2, 3));
-    level.enemies.push(new Enemy(3, 5));
+    level.enemies.push(new Enemy(5, 6));
+    level.enemies.push(new Enemy(6, 6));
 
     return level;
 }
