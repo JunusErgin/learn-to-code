@@ -269,7 +269,7 @@ function level10() {
 
 
     ];
-    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -290,7 +290,7 @@ function level11() {
         new Danger(0, 1, 90, true),
         new Danger(6, 5, 270, true)
     ];
-    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
