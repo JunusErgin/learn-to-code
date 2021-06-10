@@ -87,7 +87,7 @@ function nextLevel() {
     document.getElementById('code').disabled = false;
     document.getElementById('code').style = 'opacity: 1;';
 
-    if (level < 10) {
+    if (level < 12) {
         level++;
         init();
     }
@@ -120,7 +120,7 @@ function exec(func, timeout, row, token) {
                 }
             }
             levelObj.moveEnemies();
-            //levelObj.moveMeteorites();
+            levelObj.moveMeteorites();
         } catch (e) {
 
             console.error('Error', e);
