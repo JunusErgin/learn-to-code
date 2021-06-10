@@ -48,7 +48,8 @@ function start() {
         }
         repeats = 1;
     }
-    setTimeout(allLinesExecuted, GAME_SPEED * (iteration - 1) + 100);
+    let t = setTimeout(allLinesExecuted, GAME_SPEED * (iteration - 1) + 100);
+    timeouts.push(t);
 }
 
 function allLinesExecuted() {
@@ -108,6 +109,7 @@ function exec(func, timeout, row, token) {
             
             if (levelObj.planetReached()) {
                 levelObj.finish();
+                clearTimeouts();
             } else {          
                 if (levelObj.isCollidingEnemy()) {
                     throw Error('EnemyCollision');
@@ -129,6 +131,7 @@ function exec(func, timeout, row, token) {
                 showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
             }
             clearTimeouts();
+            document.getElementById('nextButton').disabled = false;
         }
     }, timeout);
     timeouts.push(t);
