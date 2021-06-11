@@ -51,7 +51,7 @@ const descriptionFor = `
 
 const descriptionStay = `
 <ul>
-<li><code>stay();</code> bleibt das Ufo stehen.</li>
+<li><code>stay();</code> Das Ufo bleibt stehen.</li>
 </ul>
 `;
 
@@ -305,10 +305,31 @@ function level11() {
 
 function level12() {
 
-    let character = new Character(0, 0, 90);
-    let planets = [new Planet(6, 6, 0)];
+    /**
+     * Winning moves
+for 3:
+move();
+turn();
+for 3:
+move();
+turn();
+stay();
+stay();
+for 3:
+move();
+turn();
+move();
+     */
+
+    let character = new Character(0, 6, 0);
+    let planets = [new Planet(2, 6, 0)];
     let dangers = [
-        new Danger(0, 1, 90, true),
+        new Danger(1, 6, 0),
+        new Danger(1, 5, 0),
+        new Danger(2, 5, 0),
+
+        new Danger(5, 4, 270, true),
+
     ];
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
     ${descriptionFor}    
@@ -317,8 +338,6 @@ function level12() {
     ${descriptionStay}`;
 
     let level = new Level(character, planets, dangers, levelDescription);
-
-    // level.enemies.push(new Enemy(6, 0));
 
     return level;
 }

@@ -114,7 +114,13 @@ function exec(func, timeout, row, token) {
                 if (levelObj.isCollidingEnemy()) {
                     throw Error('EnemyCollision');
                 }
+                if (levelObj.isCollidingDanger()) {
+                    throw Error('DangerCollision');
+                }
                 func();
+                if (levelObj.isCollidingEnemy()) {
+                    throw Error('EnemyCollision');
+                }
                 if (levelObj.isCollidingDanger()) {
                     throw Error('DangerCollision');
                 }
