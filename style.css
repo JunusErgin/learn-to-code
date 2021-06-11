@@ -86,7 +86,8 @@ td:hover {
     /* height: 400px; */
     padding-left: 40px;
     border-radius: 10px;
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace, serif;
 }
 
 .space-object {
@@ -101,8 +102,6 @@ td:hover {
     position: relative;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
-    overflow-y: auto;
 }
 
 #code {
@@ -157,7 +156,7 @@ ul {
 }
 
 .title {
-    font-family: 'Luckiest Guy', cursive;
+    font-family: "Luckiest Guy", cursive;
 }
 
 .margin-bottom-32 {
@@ -357,6 +356,31 @@ code {
     background-color: var(--developer-akademie-color);
 }
 
+@media (min-width: 1000px) {
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .coding-container {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+}
+
 @media (max-width: 1000px) {
     body {
         flex-direction: column;
@@ -403,23 +427,21 @@ code {
     .card {
         padding: var(--card-padding-mobile);
     }
-}
 
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+    .footer{
+        flex-direction: column;
+    }
+
+    .footer-item{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vertical-seperator{
+        width: 100px;
+        height: 1px;
+    }
+
+}
