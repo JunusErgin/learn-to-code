@@ -354,11 +354,6 @@ function level13() {
     let character = new Character(0, 6, 0);
     let planets = [new Planet(2, 6, 0)];
     let dangers = [
-        new Danger(1, 6, 0),
-        new Danger(1, 5, 0),
-        new Danger(2, 5, 0),
-
-        new Danger(5, 4, 270, true),
 
     ];
     let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
@@ -390,7 +385,7 @@ function level14() {
         new Danger(3, 1, 90, true)
 
     ];
-    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -404,17 +399,29 @@ function level14() {
 function level15() {
 
 
-    let character = new Character(0, 6, 0);
-    let planets = [new Planet(2, 6, 0)];
+    let character = new Character(3, 0, 180);
+    let planets = [new Planet(3, 6, 0)];
     let dangers = [
-        new Danger(1, 6, 0),
-        new Danger(1, 5, 0),
-        new Danger(2, 5, 0),
+      
+        new Danger(2, 1, 90, true),
+        new Danger(3, 1, 90, true),
+        new Danger(4, 1, 90, true),
+        new Danger(5, 1, 90, true),
+        new Danger(6, 1, 90, true),
 
-        new Danger(5, 4, 270, true),
+        new Danger(2, 3, 270, true),
+        new Danger(3, 3, 270, true),
+        new Danger(4, 3, 270, true),
+        new Danger(1, 3, 270, true),
+        new Danger(0, 3, 270, true),
 
+        new Danger(2, 5, 90, true),
+        new Danger(3, 5, 90, true),
+        new Danger(4, 5, 90, true),
+        new Danger(5, 5, 90, true),
+        new Danger(6, 5, 90, true),
     ];
-    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
