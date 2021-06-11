@@ -2,6 +2,7 @@ let levelObj;
 let timeouts = [];
 let level = 1;
 const GAME_SPEED = 800;
+let maxLevel;
 
 function start() {
     document.getElementById('nextButton').disabled = true;
@@ -87,7 +88,7 @@ function nextLevel() {
     document.getElementById('code').disabled = false;
     document.getElementById('code').style = 'opacity: 1;';
 
-    if (level < 15) {
+    if (level < maxLevel) {
         level++;
         init();
     }
@@ -207,58 +208,10 @@ function startLevel() {
     levelObj.update();
 }
 
-
-
-/**
- * 25.05.2021 - Moved to Character Class
- */
-
-// function remove(id) {
-//     let elem = document.getElementById(id);
-//     if (elem) {
-//         elem.parentNode.removeChild(elem);
-//     }
-// }
-
-/**
- * 21.05.2021 - Moved to Character Class
- */
-
-// function move() {
-//     console.log('move()');
-//     degree = degree % 360;
-
-//     if (degree == 0) {
-//         y--;
-//     }
-
-//     if (degree == 90) {
-//         x++;
-//     }
-
-//     if (degree == 180) {
-//         y++;
-//     }
-
-//     if (degree == 270) {
-//         x--;
-//     }
-//     updateCharacter();
-// }
-
-// function turn() {
-//     console.log('turn()');
-//     degree += 90;
-//     updateCharacter();
-// }
-
-// function updateCharacter() {
-
-//     remove('character');
-//     let id = x + 'x' + y;
-//     let field = document.getElementById(id);
-//     if (!field) {
-//         throw Error('Element not found');
-//     }
-//     field.innerHTML = '<img id="character" style="transform: rotate(' + degree + 'deg);" src="img/character/muestra_pink.gif">';
-// }
+window.onload = function (){
+    let urlParams = new URLSearchParams(window.location.search);
+    let premium = urlParams.get('premium');
+    maxLevel = premium? 15 : 10;
+    document.getElementById("max-levels").innerHTML = `${maxLevel}`;
+    init();
+}
