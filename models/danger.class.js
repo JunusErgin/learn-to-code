@@ -15,7 +15,7 @@ class Danger extends SpaceObject {
 
             if (this.degree == 0) {
                 if( !this.fieldIsOk(this.x, this.y - 1))
-                    this.y = levelObj.rows;
+                    this.y = levelObj.rows - 1;
                 else
                     this.y--;
             }
@@ -36,8 +36,9 @@ class Danger extends SpaceObject {
 
             if (this.degree == 270) {
                 if(!this.fieldIsOk(this.x - 1, this.y))
-                    this.x = levelObj.cols;
-                this.x--;
+                    this.x = levelObj.cols - 1;
+                else
+                    this.x--;
             }
             this.update();
         }

@@ -87,7 +87,7 @@ function nextLevel() {
     document.getElementById('code').disabled = false;
     document.getElementById('code').style = 'opacity: 1;';
 
-    if (level < 12) {
+    if (level < 15) {
         level++;
         init();
     }
