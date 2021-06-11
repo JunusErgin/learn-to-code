@@ -101,6 +101,8 @@ td:hover {
     position: relative;
     display: flex;
     flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 #code {
@@ -402,3 +404,22 @@ code {
         padding: var(--card-padding-mobile);
     }
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
