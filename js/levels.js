@@ -351,12 +351,33 @@ move();
 function level13() {
 
 
-    let character = new Character(0, 6, 0);
-    let planets = [new Planet(2, 6, 0)];
+    let character = new Character(0, 6, 90);
+    let planets = [new Planet(6, 0, 0)];
     let dangers = [
+        new Danger(0, 5, 0),
+        new Danger(1, 5, 0),
+        new Danger(1, 4, 0),
+
+        new Danger(3, 6, 0),
+        new Danger(3, 4, 0),
+        new Danger(5, 4, 0),
+        new Danger(5, 5, 0),
+
+        new Danger(1, 2, 0),
+        new Danger(2, 2, 0),
+        new Danger(1, 1, 0),
+
+        new Danger(3, 0, 0),
+
+        new Danger(3, 2, 0),
+        new Danger(5, 2, 0),
+        new Danger(6, 1, 0),
+
+        new Danger(4, 4, 0)
+
 
     ];
-    let levelDescription = `Gegner versuchen dich zu fangen. Erreiche den Planeten, bevor Sie dich erreichen!
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
