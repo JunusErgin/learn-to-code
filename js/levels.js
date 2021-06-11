@@ -296,7 +296,9 @@ function level11() {
         new Danger(0, 1, 90, true),
         new Danger(6, 5, 270, true)
     ];
-    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.<br>
+    <b>Seien Sie jetzt vorsichtig!</b> Einige Meteoriten bewegen sich.<br>
+    Verwende hierfür zum Beispiel die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">stay()</code> um ihre Bewegungen zu merken.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -337,7 +339,9 @@ move();
         new Danger(5, 4, 270, true),
 
     ];
-    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.<br>
+    <b>Seien Sie jetzt vorsichtig!</b> Einige Meteoriten bewegen sich.<br>
+    Verwende hierfür zum Beispiel die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">stay()</code> um ihre Bewegungen zu merken.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -406,7 +410,9 @@ function level14() {
         new Danger(3, 1, 90, true)
 
     ];
-    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.<br>
+    <b>Seien Sie jetzt vorsichtig!</b> Einige Meteoriten bewegen sich.<br>
+    Verwende hierfür zum Beispiel die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">stay()</code> um ihre Bewegungen zu merken.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -423,7 +429,7 @@ function level15() {
     let character = new Character(3, 0, 180);
     let planets = [new Planet(3, 6, 0)];
     let dangers = [
-      
+
         new Danger(2, 1, 90, true),
         new Danger(3, 1, 90, true),
         new Danger(4, 1, 90, true),
@@ -442,7 +448,9 @@ function level15() {
         new Danger(5, 5, 90, true),
         new Danger(6, 5, 90, true),
     ];
-    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> mit einem Meteoriten zu kollidieren.<br>
+    <b>Seien Sie jetzt vorsichtig!</b> Einige Meteoriten bewegen sich.<br>
+    Verwende hierfür zum Beispiel die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">stay()</code> um ihre Bewegungen zu merken.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
