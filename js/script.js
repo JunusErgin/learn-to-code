@@ -54,9 +54,15 @@ function start() {
 }
 
 function allLinesExecuted() {
-    console.log('allLinesExecuted', levelObj.planetReached());
-    if (!levelObj.planetReached()) {
-        showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.');
+    console.log('allLinesExecuted', levelObj.planetsReached());
+    if (!levelObj.planetsReached()) {
+        if(levelObj.targetsToReach > 1){
+            showDialog('Die Planeten wurden nicht erreicht. Bitte versuche es erneut.');
+        }
+        else{
+            showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.');
+        }
+        
     } else {
         if (!levelObj.finished) {
             levelObj.finish();
@@ -108,10 +114,11 @@ function exec(func, timeout, row, token) {
     let t = setTimeout(function () {
         try {
             
-            if (levelObj.planetReached()) {
+            if (levelObj.planetsReached()) {
                 levelObj.finish();
                 clearTimeouts();
-            } else {          
+            } else {     
+                levelObj.checkPlanetReached();     
                 if (levelObj.isCollidingEnemy()) {
                     throw Error('EnemyCollision');
                 }
@@ -119,6 +126,7 @@ function exec(func, timeout, row, token) {
                     throw Error('DangerCollision');
                 }
                 func();
+                levelObj.checkPlanetReached();    
                 if (levelObj.isCollidingEnemy()) {
                     throw Error('EnemyCollision');
                 }

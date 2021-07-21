@@ -8,7 +8,7 @@ class Level {
     cols = 7;
     finished = false;
     enemies = [];
-    targetsReached = 0;
+    targetsToReach = 0;
 
     constructor(character, planets, dangers, levelDescription, code, rows, cols) {
         this.character = character;
@@ -18,6 +18,7 @@ class Level {
         this.code = code || '';
         this.rows = rows || this.rows;
         this.cols = cols || this.cols;
+        this.targetsToReach = this.planets.length;
     }
 
     update() {
@@ -54,6 +55,17 @@ class Level {
 
     planetReached() {
         return this.planets[0].x == this.character.x && this.planets[0].y == this.character.y;
+    }
+
+    planetsReached(){
+        return this.planets.length == 0;
+    }
+
+    checkPlanetReached(){
+        const reachedPlanet = this.planets.find(planet => planet.x == this.character.x && this.character.y == planet.y);
+        if(reachedPlanet){
+            this.planets.splice(this.planets.indexOf(reachedPlanet), 1);
+        }
     }
 
 

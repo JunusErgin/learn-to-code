@@ -207,6 +207,16 @@ for 5:
 move();
      */
 
+/**
+ * turn();
+for 6: 
+move();
+for 3:
+turn();
+for 5:
+move();
+ */
+
     let character = new Character(6, 0, 180);
     let planets = [new Planet(0, 1, 0), new Planet(0, 5, 0)];
     let dangers = [new Danger(1, 1, 0), new Danger(1, 2, 0), new Danger(1, 3, 0), new Danger(1, 4, 0), new Danger(1, 5, 0)];
