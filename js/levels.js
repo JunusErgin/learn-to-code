@@ -256,6 +256,31 @@ function level9() {
     return level;
 }
 
+/**
+ * 
+ * @returns for 6:
+  move();
+turn();
+for 6:
+  move();
+turn();
+for 6:
+  move();
+turn();
+for 4:
+  move();
+turn();
+for 4:
+  move();
+turn();
+for 2:
+  move();
+turn();
+for 2:
+  move();
+
+ */
+
 function level10() {
 
     let character = new Character(0, 0, 90);
