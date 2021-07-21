@@ -79,7 +79,7 @@ function level2() {
 
     let character = new Character(1, 3, 0);
     let planets = [new Planet(2, 2, 0)];
-    let levelDescription = `Bringe Loper sicher zum Planeter der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.
+    let levelDescription = `Bringe Loper sicher zum Planeten der <a href="https://weiterbildung.developerakademie.com" target="_tab">Developer Akademie</a>.
     Verwende hierfür <code  class="text-color-da">move();</code> und <code  class="text-color-da">turn();</code>.
     
     ${descriptionMove}
@@ -119,7 +119,7 @@ function level5() {
 
     let character = new Character(0, 6, 0);
     let planets = [new Planet(0, 0, 0)];
-    let levelDescription = `Erreiche den Platen, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code>, um dich zur Developer Akademie zu begeben.
     ${descriptionFor}    
     ${descriptionMove}
     `;
@@ -135,7 +135,7 @@ function level6() {
     let dangersCol = [new Danger(5, 1, 0), new Danger(5, 2, 0), new Danger(5, 3, 0), new Danger(5, 4, 0), new Danger(5, 5, 0)];
     let allDangers = dangersCol.concat(dangersRow, dangersRow2);
     let planets = [new Planet(0, 6, 0)];
-    let levelDescription = `Erreiche den Platen, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen und <b>ohne</b> mit einem Meteoriten zu kollidieren. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>, um dich zur Developer Akademie zu begeben.
+    let levelDescription = `Erreiche den Planeten, <b>ohne</b> den Befehl <code>move();</code> mehrfach auszuführen und <b>ohne</b> mit einem Meteoriten zu kollidieren. Verwende hierfür die for-Schleife <code  class="text-color-da">for 6:</code> und <code  class="text-color-da">move()</code> und <code  class="text-color-da">turn()</code>, um dich zur Developer Akademie zu begeben.
     ${descriptionFor}    
     ${descriptionMove}
     ${descriptionTurn}
@@ -208,6 +208,7 @@ move();
      */
 
 /**
+ * Test wihout enemies
  * turn();
 for 6: 
 move();
