@@ -378,7 +378,7 @@ code {
         background: #555;
     }
     .coding-container {
-        max-height: 100vh;
+        max-height: calc(100vh - 66px);
         overflow-y: auto;
     }
 }
