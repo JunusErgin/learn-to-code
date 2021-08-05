@@ -217,7 +217,9 @@ a:hover {
 
 .align-right {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
 }
 
 #errorDialog div {
@@ -442,6 +444,6 @@ code {
     .vertical-seperator{
         width: 100px;
         height: 1px;
+        margin: 10px 0;
     }
-
 }
