@@ -280,7 +280,7 @@ function level9() {
 
 /**
  * 
- * @returns for 6:
+for 6:
   move();
 turn();
 for 6:

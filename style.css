@@ -203,7 +203,7 @@ a:hover {
     color: var(--developer-akademie-color);
 }
 
-#errorDialog {
+#dialog {
     position: fixed;
     left: 0;
     right: 0;
@@ -222,14 +222,14 @@ a:hover {
     align-items: center;
 }
 
-#errorDialog div {
+#dialog div {
     width: 300px;
     height: 200px;
     background-color: white;
     padding: 8px;
     box-shadow: 2px 9px 12px rgb(0 0 0 / 64%);
     color: #4b6170;
-    font-size: 32px;
+    /* font-size: 32px; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -239,11 +239,15 @@ a:hover {
     overflow: hidden;
 }
 
-#errorDialog div span {
+#dialog #dialogMsg {
     font-size: 18px;
 }
 
-#errorDialog div button {
+#dialog #dialogTitle{
+    font-size: 32px;
+}
+
+#dialog div button {
     background-color: #f65656;
     cursor: pointer;
     color: white;
@@ -257,7 +261,7 @@ a:hover {
     border: none;
 }
 
-#errorDialog div button:hover {
+#dialog div button:hover {
     background-color: #f56666;
 }
 

@@ -15,7 +15,7 @@ function start() {
 
     console.log('tokens.length ', code.value.length);
     if (tokens.length == 0 || code.value.trim().length == 0) {
-        showDialog('Bitte gebe mindestens einen Befehl in den Code-Editor ein.');
+        showDialog('Bitte gebe mindestens einen Befehl in den Code-Editor ein.', 'Oh nein!');
     }
 
     for (let i = 0; i < tokens.length; i++) {
@@ -29,7 +29,7 @@ function start() {
         if (isForLoop(token)) {
             repeats = getRepetitionsFromForLoop(token);
             if (isNaN(repeats)) {
-                showDialog('Bitte überprüfe die for-Schleife in Zeile ' + row + '. Schreibe z.B. <code>for 5:</code>');
+                showDialog('Bitte überprüfe die for-Schleife in Zeile ' + row + '. Schreibe z.B. <code>for 5:</code>', 'Oh nein!');
                 break;
             }
             repeats = +repeats;
@@ -58,10 +58,10 @@ function allLinesExecuted() {
     console.log('allLinesExecuted', levelObj.planetsReached());
     if (!levelObj.planetsReached()) {
         if(levelObj.targetsToReach > 1){
-            showDialog('Die Planeten wurden nicht erreicht. Bitte versuche es erneut.');
+            showDialog('Die Planeten wurden nicht erreicht. Bitte versuche es erneut.', 'Oh nein!');
         }
         else{
-            showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.');
+            showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.', 'Oh nein!');
         }
         
     } else {
@@ -100,6 +100,9 @@ function nextLevel() {
         if (level < maxLevel) {
             level++;
             init();
+        }else{
+            level = 1;
+            showDialog('Herzlichen Glückwunsch! Du hast alle Level durchgespielt. Jetzt bist du bereit, eine richtige Programmiersprache zu lernen!', 'HURRAA!' );
         }
     }
 }
@@ -145,11 +148,11 @@ function exec(func, timeout, row, token) {
 
             console.error('Error', e);
             if (e.message == 'EnemyCollision') {
-                showDialog('Du wurdest von einem anderen Ufo erwischt!!');
+                showDialog('Du wurdest von einem anderen Ufo erwischt!!', 'Oh nein!');
             } else if (e.message == 'DangerCollision') {
-                showDialog('Du hast ein Meteorit erwischt!!');
+                showDialog('Du hast ein Meteorit erwischt!!', 'Oh nein!');
             } else {
-                showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.');
+                showDialog('Der Befehl <code>' + token + '</code> in Zeile ' + row + ' konnte nicht ausgeführt werden.', 'Oh nein!');
             }
             clearTimeouts();
             document.getElementById('nextButton').disabled = false;
@@ -162,23 +165,25 @@ function clearTimeouts() {
     timeouts.forEach(t => clearTimeout(t));
 }
 
-function showDialog(msg) {
+function showDialog(msg, title) {
     if (!dialogIsOpen()) {
-        let errorDialog = document.getElementById('errorDialog');
-        let errorMsg = document.getElementById('errorMsg');
-        errorMsg.innerHTML = msg;
-        errorDialog.style.display = 'flex';
+        let dialog = document.getElementById('dialog');
+        let dialogMsg = document.getElementById('dialogMsg');
+        let dialogTitle = document.getElementById('dialogTitle');
+        dialogTitle.innerHTML = title;
+        dialogMsg.innerHTML = msg;
+        dialog.style.display = 'flex';
     }
 }
 
 function dialogIsOpen() {
-    let errorDialog = document.getElementById('errorDialog');
-    return errorDialog.style.display == 'flex';
+    let dialog = document.getElementById('dialog');
+    return dialog.style.display == 'flex';
 }
 
 function restart() {
-    let errorDialog = document.getElementById('errorDialog');
-    errorDialog.style.display = 'none';
+    let dialog = document.getElementById('dialog');
+    dialog.style.display = 'none';
     init();
 }
 
