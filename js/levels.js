@@ -89,6 +89,18 @@ function level2() {
     return new Level(character, planets, [], levelDescription, '', 5, 5);
 }
 
+/**
+ * 
+move();
+turn();
+move();
+turn();
+turn();
+turn();
+move();
+move();
+ */
+
 function level3() {
 
     let character = new Character(1, 2, 90);
@@ -101,6 +113,16 @@ function level3() {
 
     return new Level(character, planets, dangers, levelDescription, '', 5, 5);
 }
+
+/**
+ * 
+turn();
+turn();
+move();
+move();
+turn();
+move();
+ */
 
 function level4() {
 
@@ -458,6 +480,23 @@ function level14() {
 
     return level;
 }
+
+/**
+ * 
+ * 
+for 2:
+stay();
+for 2:
+move();
+for 5:
+stay();
+for 2:
+move();
+for 5:
+stay();
+for 2:
+move();
+ */
 
 function level15() {
 

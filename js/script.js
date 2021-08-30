@@ -3,6 +3,7 @@ let timeouts = [];
 let level = 1;
 const GAME_SPEED = 800;
 let maxLevel;
+let finishedLevels = 0;
 
 function start() {
     document.getElementById('nextButton').disabled = true;
@@ -66,6 +67,7 @@ function allLinesExecuted() {
     } else {
         if (!levelObj.finished) {
             levelObj.finish();
+            finishedLevels++;
         }
     }
     document.getElementById('nextButton').disabled = false;
@@ -88,15 +90,17 @@ function lastLevel() {
 }
 
 function nextLevel() {
-    let nextButton = document.getElementById('nextButton');
-    nextButton.innerHTML = 'Play';
-    nextButton.disabled = false;
-    document.getElementById('code').disabled = false;
-    document.getElementById('code').style = 'opacity: 1;';
-
-    if (level < maxLevel) {
-        level++;
-        init();
+    if(finishedLevels >= level){
+        let nextButton = document.getElementById('nextButton');
+        nextButton.innerHTML = 'Play';
+        nextButton.disabled = false;
+        document.getElementById('code').disabled = false;
+        document.getElementById('code').style = 'opacity: 1;';
+    
+        if (level < maxLevel) {
+            level++;
+            init();
+        }
     }
 }
 
@@ -116,6 +120,7 @@ function exec(func, timeout, row, token) {
             
             if (levelObj.planetsReached()) {
                 levelObj.finish();
+                finishedLevels++;
                 clearTimeouts();
             } else {     
                 levelObj.checkPlanetReached();     
