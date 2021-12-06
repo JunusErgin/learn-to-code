@@ -35,8 +35,8 @@ class Level {
         }, 300));
     }
 
-    moveMeteorites(){
-        this.dangers.forEach(d =>setTimeout(() =>{
+    moveMeteorites() {
+        this.dangers.forEach(d => setTimeout(() => {
             d.move();
         }, 300));
     }
@@ -57,14 +57,24 @@ class Level {
         return this.planets[0].x == this.character.x && this.planets[0].y == this.character.y;
     }
 
-    planetsReached(){
+    planetsReached() {
         return this.planets.length == 0;
     }
 
-    checkPlanetReached(){
+    checkPlanetReached() {
         const reachedPlanet = this.planets.find(planet => planet.x == this.character.x && this.character.y == planet.y);
-        if(reachedPlanet){
+        if (reachedPlanet) {
             this.planets.splice(this.planets.indexOf(reachedPlanet), 1);
+        }
+    }
+
+    checkSpace() {
+        this.checkPlanetReached();
+        if (this.isCollidingEnemy()) {
+            throw Error('EnemyCollision');
+        }
+        if (this.isCollidingDanger()) {
+            throw Error('DangerCollision');
         }
     }
 
@@ -93,4 +103,27 @@ class Level {
             stopConfetti();
         }, 500);
     }
+
+    createSpace() {
+        let tbody = document.getElementById('tbody');
+        tbody.innerHTML = '';
+        for (let i = 0; i < this.rows; i++) {
+
+            tbody.innerHTML += `<tr id="row${i}">
+                      ${this.generateCols(i)}
+                    </tr>`;
+        }
+    }
+
+    generateCols(row) {
+        let html = '';
+        let width = 100 / this.cols;
+        let height = 100 / this.rows;
+
+        for (let i = 0; i < this.cols; i++) {
+            html += `<td style="width: ${width}%; height: ${height}%; " id="${i}x${row}"></td>`;
+        }
+        return html;
+    }
+
 }

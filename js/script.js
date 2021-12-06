@@ -57,13 +57,13 @@ function start() {
 function allLinesExecuted() {
     console.log('allLinesExecuted', levelObj.planetsReached());
     if (!levelObj.planetsReached()) {
-        if(levelObj.targetsToReach > 1){
+        if (levelObj.targetsToReach > 1) {
             showDialog('Die Planeten wurden nicht erreicht. Bitte versuche es erneut.', 'Oh nein!');
         }
-        else{
+        else {
             showDialog('Der Planet wurde nicht erreicht. Bitte versuche es erneut.', 'Oh nein!');
         }
-        
+
     } else {
         if (!levelObj.finished) {
             levelObj.finish();
@@ -90,19 +90,19 @@ function lastLevel() {
 }
 
 function nextLevel() {
-    if(finishedLevels >= level){
+    if (finishedLevels >= level) {
         let nextButton = document.getElementById('nextButton');
         nextButton.innerHTML = 'Play';
         nextButton.disabled = false;
         document.getElementById('code').disabled = false;
         document.getElementById('code').style = 'opacity: 1;';
-    
+
         if (level < maxLevel) {
             level++;
             init();
-        }else{
+        } else {
             level = 1;
-            showDialog('Herzlichen Glückwunsch! Du hast alle Level durchgespielt. Jetzt bist du bereit, eine richtige Programmiersprache zu lernen!', 'HURRAA!' );
+            showDialog('Herzlichen Glückwunsch! Du hast alle Level durchgespielt. Jetzt bist du bereit, eine richtige Programmiersprache zu lernen!', 'HURRAA!');
         }
     }
 }
@@ -120,32 +120,18 @@ function exec(func, timeout, row, token) {
 
     let t = setTimeout(function () {
         try {
-            
             if (levelObj.planetsReached()) {
                 levelObj.finish();
                 finishedLevels++;
                 clearTimeouts();
-            } else {     
-                levelObj.checkPlanetReached();     
-                if (levelObj.isCollidingEnemy()) {
-                    throw Error('EnemyCollision');
-                }
-                if (levelObj.isCollidingDanger()) {
-                    throw Error('DangerCollision');
-                }
+            } else {
+                levelObj.checkSpace();
                 func();
-                levelObj.checkPlanetReached();    
-                if (levelObj.isCollidingEnemy()) {
-                    throw Error('EnemyCollision');
-                }
-                if (levelObj.isCollidingDanger()) {
-                    throw Error('DangerCollision');
-                }
+                levelObj.checkSpace();
             }
             levelObj.moveEnemies();
             levelObj.moveMeteorites();
         } catch (e) {
-
             console.error('Error', e);
             if (e.message == 'EnemyCollision') {
                 showDialog('Du wurdest von einem anderen Ufo erwischt!!', 'Oh nein!');
@@ -191,45 +177,24 @@ function init() {
     startLevel();
 }
 
-function createSpace() {
-    let tbody = document.getElementById('tbody');
-    tbody.innerHTML = '';
-    for (let i = 0; i < levelObj.rows; i++) {
-
-        tbody.innerHTML += `<tr id="row${i}">
-              ${generateCols(i)}
-            </tr>`;
-    }
-}
-
-
-function generateCols(row) {
-    let html = '';
-    let width = 100 / levelObj.cols;
-    let height = 100 / levelObj.rows;
-
-    for (let i = 0; i < levelObj.cols; i++) {
-        html += `<td style="width: ${width}%; height: ${height}%; " id="${i}x${row}"></td>`;
-    }
-
-
-    return html;
-}
-
 function startLevel() {
     let levelNumber = document.getElementById('levelNumber');
     levelNumber.innerHTML = level;
 
     levelObj = getLevel(level);
     levelObj.write('levelDescription', levelObj.levelDescription);
-    createSpace();
+    levelObj.createSpace();
     levelObj.update();
 }
 
-window.onload = function (){
+window.onload = function () {
+    setMaxLevel();
+    init();
+}
+
+function setMaxLevel() {
     let urlParams = new URLSearchParams(window.location.search);
     let premium = urlParams.get('premium');
-    maxLevel = premium? 15 : 10;
+    maxLevel = premium ? 15 : 10;
     document.getElementById("max-levels").innerHTML = `${maxLevel}`;
-    init();
 }
